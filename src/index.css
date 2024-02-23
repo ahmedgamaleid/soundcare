@@ -1,0 +1,15 @@
+body {
+background-color:#fbfbfc  ;
+color: rgb(17, 17, 17) ;
+font-family: 'Arial' ;
+
+}
+
+.logonav {
+    font-family: "Wavefont";
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "ROND" 100, "YELA" -100;
+  }
+  
