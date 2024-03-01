@@ -3,6 +3,22 @@ background-color:#fbfbfcb6  ;
 color: rgb(17, 17, 17) ;
 font-family: 'Arial' ;
 
+
+}
+.ulstyle{
+  font-family: "Comfortaa", sans-serif;
+
+}
+.active {
+  color: #20B6A3 !important; /* Your desired color */
+  /* Add any other styles you want for active links */
+}
+.active .nav-link{
+
+  font-family: "Comfortaa", sans-serif;
+
+
+  
 }
 .nav{
   color: white;
