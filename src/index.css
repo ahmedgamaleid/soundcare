@@ -168,13 +168,136 @@ text-align: center;
 }
 
 
+.home .first{
+  margin-left: 20px;
+}
+.home header{
+  color: #20B6A3;
+  margin-bottom: 15px;
+}
+.home h3{
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  /* font-weight: 00; */
+}
+.home p{
+  color: #888787
+}
+.home .btnn:hover{
+  
+  color: black;
+  background-color: var(--second-color);
+}
+.home .pro{
+  /* border: 10%; */
+  /* box-shadow: inset; */
+  margin-left: -40px;
+}
+.home .prog{
+  background-color: #20B6A3;
+}
+
+
+:root{
+  --main-color:#20B6A3;
+  --second-color:#E8FCFB;
+}
+.second-color{
+  background-color: var(--second-color);
+}
+.main-color{
+  background-color: var(--main-color);
+}
+.brdr{
+  border-radius: 7%;
+  border: #20B6A3 ;
+  border-style: solid;
+  text-align: center;
+  padding-right: 50px;
+
+}
+.icon{
+  color: var(--main-color);
+  background-color: #fcfcfd;
+  border-radius: 100%;
+  width: 3.5rem;
+  height: 2.5rem;
+  font-size: 2rem;
+  padding: 10px 0 45px;
+}
+.about-h{
+font-size: 1.5rem;
+padding-top: 15px;
+padding-bottom: 10px;
+
+}
+.about-p{
+font-style: #b6b5b5;
+}
+/* .about-second:hover{
+background-color: var(--second-color);
+} */
+.about:hover,.about-h:hover,.about-p:hover{
+background-color: var(--main-color);
+color: white;
+transition: .5s;
+}
+.about-th{
+margin-left: -50px;
+}
+
+/* about  */
+.drimg{
 
 
 
 
+}
+
+.childdr{
+   z-index: 1;
+ 
+   font-family: "Comfortaa", sans-serif;
+}
+.rightabout{
+
+  font-family: "Comfortaa", sans-serif;
 
 
+}
+.drimg {
+  position: relative; /* Change to relative so child elements are positioned relative to this */
+}
 
+.childdr {
+  padding: 2rem;
+  background-color: white;
+  color: #20B6A3;
+  border-radius: 50%;
+  width: 11rem;
+  height: 11rem;
+  position: absolute;
+  top: 0; /* Align to the top */
+  right: 0; /* Align to the right */
+  z-index: 1; /* Set higher z-index */
+  overflow: hidden;
+  margin-top: -3rem;
+  margin-right: -1rem;
+ 
+}
 
+.headerco{
+color: #20B6A3;
 
+}
+.spamst{
+color: black;
+font-weight: 500;
 
+}
+.spiltb{
+  margin-bottom: 15px;
+}
+.spiltt{
+  margin-top: 4rem;;
+}
