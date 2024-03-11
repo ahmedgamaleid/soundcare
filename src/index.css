@@ -2,9 +2,71 @@ body {
 background-color:#fbfbfcb6  ;
 color: rgb(17, 17, 17) ;
 font-family: 'Arial' ;
+}
+/* Start loading screen */
 
+.loadingstart {
+  background-color: white;
+}
+
+.test {
+  color: #20B6A3;
+  font-size: 8rem;
+  font-family: "Comfortaa", sans-serif;
+  display: inline-block;
+}
+
+.test span {
+  display: inline-block;
+  opacity: 0;
+  animation: revealLetter 1s forwards;
+}
+
+.test span:nth-child(1) { animation-delay: 0s; }
+.test span:nth-child(2) { animation-delay: 0.1s; }
+.test span:nth-child(3) { animation-delay: 0.2s; }
+.test span:nth-child(4) { animation-delay: 0.3s; }
+.test span:nth-child(5) { animation-delay: 0.4s; }
+.test span:nth-child(6) { animation-delay: 0.5s; }
+.test span:nth-child(7) { animation-delay: 0.6s; }
+.test span:nth-child(8) { animation-delay: 0.7s; }
+.test span:nth-child(9) { animation-delay: 0.8s; }
+.test span:nth-child(10) { animation-delay: 0.9s; }
+
+@keyframes revealLetter {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* End loading screen */
+   /* ================================================================ */
+   /* start dashboard */
+
+.sidebars{
+height: 100vh;
+background-color: #20B6A3;
 
 }
+.buttons{
+  border: transparent;
+  font-family: "Comfortaa", sans-serif;
+  background-color: #20B6A3;
+  color: white;
+}
+.Contentside{
+  background-color: #888787;
+}
+   /* end dashboard */
+/* ================================================================ */
+
 .ulstyle{
   font-family: "Comfortaa", sans-serif;
 
@@ -263,12 +325,7 @@ margin-left: -50px;
 }
 
 /* about  */
-.drimg{
 
-
-
-
-}
 
 .childdr{
    z-index: 1;
