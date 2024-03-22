@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
 body {
-background-color:#fbfbfcb6  ;
+/* background-color:#fbfbfcb6  ; */
+background-color: white;
 color: rgb(17, 17, 17) ;
-font-family: 'Arial' ;
+font-family: "Comfortaa", sans-serif;
+
+
 }
 /* Start loading screen */
 
@@ -48,24 +52,7 @@ font-family: 'Arial' ;
 
 /* End loading screen */
    /* ================================================================ */
-   /* start dashboard */
-
-.sidebars{
-height: 100vh;
-background-color: #20B6A3;
-
-}
-.buttons{
-  border: transparent;
-  font-family: "Comfortaa", sans-serif;
-  background-color: #20B6A3;
-  color: white;
-}
-.Contentside{
-  background-color: #888787;
-}
-   /* end dashboard */
-/* ================================================================ */
+ 
 
 .ulstyle{
   font-family: "Comfortaa", sans-serif;
@@ -91,6 +78,19 @@ background-color: #20B6A3;
     font-weight: 400;
     font-style: normal;
     font-variation-settings: "ROND" 100, "YELA" -100;
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+  @media (max-width: 768px) {
+    .logonav {
+      font-size: 0.8rem; /* Adjust the font size as needed */
+    }
+  }
+  
+  /* Adjust font size for even smaller screens */
+  @media (max-width: 576px) {
+    .logonav {
+      font-size: 0.6rem; /* Adjust the font size as needed */
+    }
   }
   /* home ------========================================================================================================================*/
   .righthome {
@@ -174,9 +174,10 @@ font-size: 13px;
 
 
 .fontb{
-  font-size: 12px;
+  font-size: 15px;
   background-color: #20B6A3;
-  color:white
+  color:white;
+  padding: 10px;
 }
 .fontb:hover {
   color: #20B6A3; /* Change text color to match background color on hover */
@@ -315,10 +316,14 @@ font-style: #b6b5b5;
 /* .about-second:hover{
 background-color: var(--second-color);
 } */
-.about:hover,.about-h:hover,.about-p:hover{
+/* .about:hover,.about-h:hover,.about-p:hover{
 background-color: var(--main-color);
 color: white;
 transition: .5s;
+} */
+.about:hover {
+  color:white;
+  background-color:#20B6A3;
 }
 .about-th{
 margin-left: -50px;
@@ -327,11 +332,12 @@ margin-left: -50px;
 /* about  */
 
 
-.childdr{
-   z-index: 1;
- 
-   font-family: "Comfortaa", sans-serif;
+.childdr {
+  z-index: 1;
+  font-family: "Comfortaa", sans-serif;
+  box-shadow: 0px 0px 10px rgba(32, 182, 163, 0.5); /* Adjust the values as needed */
 }
+
 .rightabout{
 
   font-family: "Comfortaa", sans-serif;
@@ -374,3 +380,186 @@ font-weight: 500;
 .spiltt{
   margin-top: 4rem;;
 }
+
+
+/* dashboard */
+
+  /* start dashboard */
+ 
+  
+  .formdashd{
+
+    font-family: "Comfortaa", sans-serif;
+  
+  }
+  .hrline {
+    border: 2px solid #20B6A3; /* Border style, width, and color */
+    width: 25%; /* Width of the line */
+    margin-top: 20px; /* Adjust top margin if needed */
+    margin-bottom: 20px; /* Adjust bottom margin if needed */
+  }
+  
+  .sidebars{
+    height: 100vh;
+    background-color: #20B6A3;
+    border-radius: 30px 30px 30px ;
+    }
+    .buttons{
+      border: transparent;
+      font-family: "Comfortaa", sans-serif;
+      background-color: #20B6A3;
+      color: white;
+    }
+    .Contentside{
+      background-color: #ffffff;
+    }
+    /* Add this CSS to your existing stylesheet or create a new one */
+/* Adjust styles for smaller screens */
+@media (max-width: 992px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .Contentside {
+    width: 100%;
+  }
+
+  .sidebars {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .buttons {
+    margin: 5px;
+  }
+
+  .main-cards {
+    flex-wrap: wrap;
+  }
+
+  .card {
+    width: 45%;
+    margin: 10px;
+  }
+
+  .charts {
+    flex-direction: column;
+  }
+
+  .charts > div {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Adjust styles for extra small screens (phones) */
+@media (max-width: 576px) {
+  .card {
+    width: 100%;
+  }
+}
+
+       /* end dashboard */
+    /* ================================================================ */
+    /* start doctor add doctor in admin  */
+
+    .docsty{
+      font-family: "Comfortaa", sans-serif;
+    }
+      /* end doctor add doctor in admin  */
+
+/*///////////////////////////////////  strat countact us  //////////////////////////////////////////////////////////////////////////////////*/
+
+
+
+      .outer-container {
+        position: relative;
+        /* width: 300px; */
+        height: 500px; /* Adjust as needed */
+        opacity: 1; /* Ensure the outer container is fully opaque */
+      }
+      
+      .outer-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../src/img/istockphoto-1267098895-640x640.jpg');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.5; /* Adjust the opacity of the background image as needed */
+      }
+      
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, #014239, #02685b, #11bba4, #20B6A3, #76ada6, #739994, #7b9692, white);
+        opacity: 0.7; /* Adjust the opacity of the gradient as needed */
+      }
+      
+      .form-container {
+        position: absolute;
+        top: -12%; /* Adjust to move the form to the top of the outer container */
+        left: 23%;
+        transform: translateX(-50%);
+        padding: 20px; /* Optional: Add padding for better appearance */
+      }
+      
+      .formss {
+        background-color: rgb(238, 236, 236); /* Set background color to white */
+        opacity: 1; /* Ensure opacity is set to 1 to make it fully opaque */
+        color: black; /* Set text color to black */
+        /* color:#20B6A3; */
+        /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 7);  */
+        box-shadow: 0px 0px 10px rgba(32, 182, 163, 2);
+      }
+      
+      .formss input[type="text"],
+      .formss input[type="tel"],
+      .formss input[type="email"],
+      .formss input[type="date"],
+      .formss textarea {
+        color: black; /* Set text color to black */
+      }
+      
+      .contact22 {
+        color: white;
+      }
+      
+      .contact22h2 h2 {
+        font-weight: 900;
+      }
+      
+      .conntac {
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      /* ///////////////////////////////// start footer ///////////////////////////////////////////////////////////////////// */
+     
+      
+      .footer {
+        background: linear-gradient(to right, #109382, #11bba4, #20B6A3, #76ada6, #8fbfb8, #a7c6c1, white);
+        /* position: fixed; */
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        color: white;
+       
+      }
+      .social-link {
+        text-decoration: none; /* Remove underline */
+        color: inherit; /* Inherit color from parent */
+        color: #008f7c;
+      }
+      .social-icons.list-unstyled li a i {
+        color: white; /* Set the color to #20B6A3 */
+      }
+     
