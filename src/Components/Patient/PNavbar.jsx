@@ -1,7 +1,15 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 export default function PNavbar() {
+  const navigate = useNavigate();
+  const logout = () => {
+    // Remove the token from local storage
+    localStorage.removeItem('doctor');
+    localStorage.removeItem('patient');
+    // Navigate to the login page
+    navigate('/');
+  };
   return (
     <>
       <nav className="navbar navsty navbar-expand-md navbar-light  d-flex justify-content-around">
@@ -51,30 +59,34 @@ export default function PNavbar() {
             {/* Repeat similar NavLinks for other pages */}
             <li className="nav-item mx-2">
               <NavLink className={({ isActive, isPending }) =>
-                isActive ? "active nav-link bg-danger rounded" : "nav-link"
-              } to="Report">Report</NavLink>
+                isActive ? "active nav-link  rounded" : "nav-link"
+              }  to="Report">Report</NavLink>
             </li>
             <li className="nav-item mx-2">
               <NavLink className={({ isActive, isPending }) =>
-                isActive ? "active nav-link bg-danger rounded" : "nav-link"
-              } to="Appiontement">Appiontement</NavLink>
+                isActive ? "active nav-link  rounded" : "nav-link"
+              }  to="Appiontement">Appiontement</NavLink>
             </li>
 
             <li className="nav-item mx-2">
               <NavLink className={({ isActive, isPending }) =>
-                isActive ? "active nav-link bg-danger rounded" : "nav-link"
-              } to="Feedback">Feedback</NavLink>
+                isActive ? "active nav-link  rounded" : "nav-link"
+              }  to="Feedback">Feedback</NavLink>
             </li>
-            <li className="nav-item mx-2">
-              {/* NavLink for login */}
-              <NavLink className={({ isActive, isPending }) =>
-                isActive ? "active nav-link bg-danger  rounded" : "nav-link"
-              } to="Login">Login</NavLink>
-            </li>
-
-      
-
             
+
+       <li className="nav-item mx-2">
+              <NavLink className={({ isActive, isPending }) =>
+                isActive ? "active nav-link  rounded" : "nav-link"
+              } to="Contactus">Contact us</NavLink>
+            </li>
+
+            <li className="nav-item mx-2">
+              {/* Logout button */}
+              <button onClick={logout} className="btn btn-link nav-link">
+                <i className="fa-solid fa-right-from-bracket"></i> Logout
+              </button>
+            </li>
           </ul>
         </div>
       </div>

@@ -84,7 +84,20 @@ export default function DAppiontment() {
     }
   };
 
+  // const getLastAppointment = (patientId) => {
+  //   const patientAppointments = doctorAppointments.filter(appointment => appointment.patient_id === patientId);
+  //   if (patientAppointments.length > 0) {
+  //     const lastAppointment = patientAppointments[patientAppointments.length - 1];
+  //     return lastAppointment.refollow_date;
+  //   } else {
+  //     return 'No appointments found';
+  //   }
+  // };
   const getLastAppointment = (patientId) => {
+    if (!Array.isArray(doctorAppointments)) {
+      return 'Loading...'; // or whatever fallback message you prefer
+    }
+  
     const patientAppointments = doctorAppointments.filter(appointment => appointment.patient_id === patientId);
     if (patientAppointments.length > 0) {
       const lastAppointment = patientAppointments[patientAppointments.length - 1];
@@ -93,7 +106,6 @@ export default function DAppiontment() {
       return 'No appointments found';
     }
   };
-
   return (
     <>
       {loading && <p>Loading...</p>}

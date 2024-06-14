@@ -1,36 +1,42 @@
-import React, { useState, useEffect, createContext, useContext } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import './App.css';
-import ReactLoading from 'react-loading';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState, useEffect, createContext, useContext } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import "./App.css";
+import ReactLoading from "react-loading";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import ProtectedRoute from "./Components/ProtectedRoute";
 
 // Import Components
 // Admin Components
-import About from './Components/admin/About';
-import Layout from './Components/admin/Layout';
-import Errormsg from './Components/admin/Errormsg';
-import Home from './Components/admin/Home';
-import Doctors from './Components/admin/Doctors';
-import DashBoard from './Components/admin/DashBoard';
+import About from "./Components/admin/About";
+import Layout from "./Components/admin/Layout";
+import Errormsg from "./Components/admin/Errormsg";
+import Home from "./Components/admin/Home";
+import Doctors from "./Components/admin/Doctors";
+import DashBoard from "./Components/admin/DashBoard";
 
 // Patient Components
-import PFeedback from './Components/Patient/PFeedback';
-import PLayout from './Components/Patient/PLayout';
-import Report from './Components/Patient/Report';
-import Appiontement from './Components/Patient/Appiontement';
+import PFeedback from "./Components/Patient/PFeedback";
+import PLayout from "./Components/Patient/PLayout";
+import Report from "./Components/Patient/Report";
+import Appiontement from "./Components/Patient/Appiontement";
 
 // Doctor Components
-import Contactus from './Components/Doctors/Contactus';
-import Mainlayout from './Components/Doctors/Mainlayout';
-import ProfileDoctor from './Components/Doctors/ProfileDoctor';
-import Ddashboad from './Components/Doctors/Ddashboad';
-import Dpatients from './Components/Doctors/Dpatients';
-import DAppiontment from './Components/Doctors/DAppiontment';
-import DProfile from './Components/Doctors/DProfile';
+import Contactus from "./Components/Doctors/Contactus";
+import Mainlayout from "./Components/Doctors/Mainlayout";
+import ProfileDoctor from "./Components/Doctors/ProfileDoctor";
+import Ddashboad from "./Components/Doctors/Ddashboad";
+import Dpatients from "./Components/Doctors/Dpatients";
+import DAppiontment from "./Components/Doctors/DAppiontment";
+import DProfile from "./Components/Doctors/DProfile";
 
 // Login Component
-import Login from '../src/Components/login/Login ';
+import Login from "../src/Components/login/Login ";
 
 // Create a context for doctor's information
 export const DoctorContext = createContext();
@@ -42,27 +48,51 @@ function App() {
   const patient = localStorage.getItem("patient");
   const [isLoading, setIsLoading] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userRole, setUserRole] = useState(null); // Set the user role here
-  const [doctorId, setDoctorId] = useState(doctor || null); // Set the user role here
-  const [patientId, setPatientId] = useState(patient || null); // Set the patient role here
+  const [userRole, setUserRole] = useState(null);
+  const [doctorId, setDoctorId] = useState(doctor || null);
+  const [patientId, setPatientId] = useState(patient || null);
+  const [patientName, setPatientName] = useState("");
+  const [token, setToken] = useState("");
+  const [result, setResult] = useState("");
 
   useEffect(() => {
-    // Simulating loading time
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 500);
     return () => clearTimeout(timer);
   }, []);
 
-  // Function to handle user login
+  useEffect(() => {
+    const doctorData = localStorage.getItem("doctor");
+    const patientData = localStorage.getItem("patient");
+
+    if (doctorData) {
+      setDoctorId(doctorData);
+    }
+
+    if (patientData) {
+      const { id, fullName } = JSON.parse(patientData);
+      setPatientId(id);
+      setPatientName(fullName);
+    }
+  }, []);
+
   const handleLogin = (role) => {
     setIsLoggedIn(true);
     setUserRole(role);
   };
 
   return (
-    <DoctorContext.Provider value={{ doctorId, setDoctorId }}>
-      <PatientContext.Provider value={{ patientId, setPatientId }}>
+    <DoctorContext.Provider value={{ doctorId, setDoctorId, setToken }}>
+      <PatientContext.Provider
+        value={{
+          patientId,
+          setPatientId,
+          patientName,
+          setPatientName,
+          setToken,
+        }}
+      >
         <div>
           {isLoading ? (
             <div className="loading-container">
@@ -72,34 +102,30 @@ function App() {
             <Router>
               <ToastContainer />
               <Routes>
-                {/* Render login page if not logged in */}
                 {!isLoggedIn ? (
                   <Route path="/" element={<Login onLogin={handleLogin} />} />
                 ) : (
                   <>
-                    {/* Redirect to respective dashboard based on user role */}
-                    {userRole === 'admin' && (
+                    {userRole === "admin" && (
                       <Route path="/" element={<Navigate to="/admin/home" />} />
                     )}
-                    {userRole === 'doctor' && (
-                      <Route path="/" element={<Navigate to="/doctor/home" />} />
+                    {userRole === "doctor" && (
+                      <Route
+                        path="/"
+                        element={<Navigate to="/doctor/home" />}
+                      />
                     )}
-                    {userRole === 'patient' && (
-                      <Route path="/" element={<Navigate to="/patient/appiontement" />} />
+                    {userRole === "patient" && (
+                      <Route
+                        path="/"
+                        element={<Navigate to="/patient/report" />}
+                      />
                     )}
                   </>
                 )}
-
-                {/* Admin Routes */}
                 <Route path="/admin/*" element={<AdminRoutes />} />
-
-                {/* Doctor Routes */}
                 <Route path="/doctor/*" element={<DoctorRoutes />} />
-
-                {/* Patient Routes */}
                 <Route path="/patient/*" element={<PatientRoutes />} />
-
-                {/* Catch-all route */}
                 <Route path="*" element={<Errormsg />} />
               </Routes>
             </Router>
@@ -109,8 +135,7 @@ function App() {
     </DoctorContext.Provider>
   );
 }
-
-// Loading component
+//loading
 function Loading() {
   return (
     <div className="loadingstart text-center d-flex justify-content-center align-items-center vh-100">
@@ -133,60 +158,177 @@ function Loading() {
   );
 }
 
-// Admin Routes
 function AdminRoutes() {
   return (
     <Layout>
       <Routes>
         <Route path="/" element={<Navigate to="/admin/home" />} />
-        <Route path="home" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="doctors" element={<Doctors />} />
-        <Route path="dashboard" element={<DashBoard />} />
+        <Route
+          path="home"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="about"
+          element={
+            <ProtectedRoute>
+              <About />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="Doctors"
+          element={
+            <ProtectedRoute>
+              <Doctors />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="DashBoard"
+          element={
+            <ProtectedRoute>
+              <DashBoard />
+            </ProtectedRoute>
+          }
+        />
+        {/* Moved the error route to the end */}
         <Route path="*" element={<Errormsg />} />
       </Routes>
     </Layout>
+  //   <Layout>
+  //   <Routes>
+  //     <Route path="/" element={<Navigate to="/admin/home" />} />
+  //     <Route path="home" element={<Home />} />
+  //     <Route path="about" element={<About />} />
+  //     <Route path="doctors" element={<Doctors />} />
+  //     <Route path="dashboard" element={<DashBoard />} />
+  //     <Route path="*" element={<Errormsg />} />
+  //   </Routes>
+  // </Layout>
+
   );
 }
 
-// Doctor Routes
 function DoctorRoutes() {
   return (
     <Mainlayout>
       <Routes>
         <Route path="/" element={<Navigate to="/doctor/home" />} />
-        <Route path="home" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="Ddashboad" element={<Ddashboad />} />
-        <Route path="Dpatients" element={<Dpatients />} />
-        <Route path="contactus" element={<Contactus />} />
-        <Route path="profileDoctor" element={<ProfileDoctor />} />
-        <Route path="DAppiontment" element={<DAppiontment />} />
-        <Route path="DProfile" element={<DProfile />} />
+        <Route
+          path="home"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="about"
+          element={
+            <ProtectedRoute>
+              <About />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="Ddashboad"
+          element={
+            <ProtectedRoute>
+              <Ddashboad />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="Dpatients"
+          element={
+            <ProtectedRoute>
+              <Dpatients />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="profileDoctor"
+          element={
+            <ProtectedRoute>
+              <ProfileDoctor />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="DAppiontment"
+          element={
+            <ProtectedRoute>
+              <DAppiontment />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="DProfile"
+          element={
+            <ProtectedRoute>
+              <DProfile />
+            </ProtectedRoute>
+          }
+        />
+        {/* Moved the error route to the end */}
+        <Route path="*" element={<Errormsg />} />
       </Routes>
     </Mainlayout>
   );
 }
 
-// Patient Routes
 function PatientRoutes() {
   return (
     <PLayout>
       <Routes>
-        <Route path="feedback" element={<PFeedback />} />
-        <Route path="appiontement" element={<Appiontement />} />
-        <Route path="report" element={<Report />} />
+        <Route path="/" element={<Navigate to="/patient/report" />} />
+        <Route
+          path="Report"
+          element={
+            <ProtectedRoute>
+              <Report />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="Feedback"
+          element={
+            <ProtectedRoute>
+              <PFeedback />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="Appiontement"
+          element={
+            <ProtectedRoute>
+              <Appiontement />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="Contactus"
+          element={
+            <ProtectedRoute>
+              <Contactus />
+            </ProtectedRoute>
+          }
+        />
+        {/* Moved the error route to the end */}
+        <Route path="*" element={<Errormsg />} />
       </Routes>
     </PLayout>
   );
 }
 
-// Custom hook to access doctor's information
 export function useDoctorInfo() {
   return useContext(DoctorContext);
 }
 
-// Custom hook to access patient's information
 export function usePatientInfo() {
   return useContext(PatientContext);
 }

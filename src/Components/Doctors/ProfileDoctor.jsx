@@ -1,5 +1,4 @@
-
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
 export default function ProfileDoctor() {
   const [name, setName] = useState('');
@@ -10,8 +9,11 @@ export default function ProfileDoctor() {
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-
-    setInitialData({ name: '', email: '', password: '', image: null });
+    // Mock initial data
+    setInitialData({ name: 'John Doe', email: 'john.doe@example.com', password: 'password123', image: null });
+    setName('John Doe');
+    setEmail('john.doe@example.com');
+    setPassword('password123');
   }, []);
 
   const handleSubmit = async (event) => {
@@ -19,9 +21,7 @@ export default function ProfileDoctor() {
     if (isEditing) {
       try {
         console.log('Saving data:', { name, email, password, image });
-
         // Call API to save data 
-
       } catch (error) {
         console.error('Error saving data:', error);
       }
@@ -39,9 +39,20 @@ export default function ProfileDoctor() {
   };
 
   return (
-    <>
-      <div>
-        <form onSubmit={handleSubmit}>
+    <div className="container">
+    <div style={{ height: '50vh' }}>
+      <div className="row h-100">
+        <div className="col-md-6 d-flex flex-column justify-content-center">
+          <div className="mb-3">
+            <label htmlFor="image" className="form-label">Upload an image</label>
+            <input
+              type="file"
+              className="form-control"
+              id="image"
+              onChange={(e) => setImage(e.target.files[0])}
+              disabled={!isEditing}
+            />
+          </div>
           <div className="mb-3">
             <label htmlFor="Name">Name</label>
             <input
@@ -53,7 +64,11 @@ export default function ProfileDoctor() {
               onChange={(e) => setName(e.target.value)}
               disabled={!isEditing}
             />
-            <label htmlFor="exampleInputEmail1" className="form-label">Email </label>
+          </div>
+        </div>
+        <div className="col-md-6 d-flex flex-column justify-content-center">
+          <div className="mb-3">
+            <label htmlFor="exampleInputEmail1" className="form-label">Email</label>
             <input
               type="email"
               className="form-control"
@@ -75,28 +90,20 @@ export default function ProfileDoctor() {
               disabled={!isEditing}
             />
           </div>
-          <div className="mb-3">
-            <label htmlFor="image" className="form-label">Upload an image</label>
-            <input
-              type="file"
-              className="form-control"
-              id="image"
-              onChange={(e) => setImage(e.target.files[0])}
-              disabled={!isEditing}
-            />
-          </div>
-          <div className="col-12">
+          <div className="col-12 mt-3">
             {isEditing ? (
               <>
-                <button className="btn btn-primary" type="submit">Save</button>
+                <button className="btn btn-primary me-2" type="submit" onClick={handleSubmit}>Save</button>
                 <button className="btn btn-danger" type="button" onClick={handleCancel}>Cancel</button>
               </>
             ) : (
               <button className="btn btn-primary" type="button" onClick={() => setIsEditing(true)}>Edit</button>
             )}
           </div>
-        </form>
+        </div>
       </div>
-    </>
-  )
+    </div>
+  </div>
+  
+  );
 }

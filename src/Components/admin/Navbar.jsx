@@ -1,7 +1,17 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink ,useNavigate} from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    // Remove the token from local storage
+    localStorage.removeItem('doctor');
+    localStorage.removeItem('patient');
+    localStorage.removeItem('admin');
+    // Navigate to the login page
+    navigate('/');
+  };
   return (
     <nav className="navbar navsty navbar-expand-md navbar-light  d-flex justify-content-around">
       <div className="container">
@@ -54,30 +64,35 @@ const Navbar = () => {
           </ul>
 
           {/* Navbar right side */}
-          <ul className="navbar-nav ulstyle ms-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav  ms-auto mb-2 mb-lg-0">
 
             {/* Repeat similar NavLinks for other pages */}
-            <li className="nav-item ulstyle mx-2">
+            <li className="nav-item  mx-2">
               <NavLink className={({ isActive, isPending }) =>
                 isActive ? "active nav-link  rounded" : "nav-link"
-              } activeClassName="active" to="Home">Home</NavLink>
+              } activeClassName="active" to="home">Home</NavLink>
             </li>
-            <li className="nav-item ulstyle mx-2">
+            <li className="nav-item  mx-2">
               <NavLink className={({ isActive, isPending }) =>
                 isActive ? "active nav-link  rounded" : "nav-link"
               } activeClassName="active" to="About">About</NavLink>
             </li>
-            <li className="nav-item  ulstyle mx-2">
+            <li className="nav-item   mx-2">
               <NavLink className={({ isActive, isPending }) =>
                 isActive ? "active nav-link  rounded" : "nav-link"
               } activeClassName="active" to="Doctors">Doctors</NavLink>
             </li>
-            <li className="nav-item  ulstyle mx-2">
+            <li className="nav-item   mx-2">
               <NavLink className={({ isActive, isPending }) =>
                 isActive ? "active nav-link  rounded" : "nav-link"
               } activeClassName="active" to="DashBoard">DashBoard</NavLink>
             </li>
-            
+            <li className="nav-item mx-2">
+              {/* Logout button */}
+              <button onClick={logout} className="btn btn-link nav-link">
+                <i className="fa-solid fa-right-from-bracket"></i> Logout
+              </button>
+            </li>
            
            
           </ul>
