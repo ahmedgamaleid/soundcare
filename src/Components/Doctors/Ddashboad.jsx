@@ -1,9 +1,12 @@
-import React, { useEffect, useState ,useContext} from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { ResponsiveContainer, BarChart, LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, Line } from 'recharts';
 import axios from 'axios';
 import Joi from 'joi';
 import { DoctorContext } from '../../App';
+import { toast } from 'react-toastify';
+
 const Ddashboard = () => {
+   
     const [userPatient, setUserPatient] = useState({
         fullName: '',
         phone: '',
@@ -16,7 +19,8 @@ const Ddashboard = () => {
     });
     const [addmsg, setaddmsg] = useState('');
     const [patientContainer, setPatientContainer] = useState([]);
-    
+ 
+
 
     useEffect(() => {
         if (
@@ -32,11 +36,11 @@ const Ddashboard = () => {
             console.log(userPatient);
         }
     }, [userPatient]);
-////////////////////////////////////////////////////////////////// view num of patient in div ///////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////// view num of patient and report  in div ///////////////////////////////////////////////////////////////////////////////
     useEffect(() => {
         const getPatients = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:8000/api/patients/all');
+                const response = await axios.get(`http://127.0.0.1:8000/api/patients/all/${doctorId}`);
                 console.log(response.data.data);
                 setPatientContainer(response.data.data.patients);
             } catch (error) {
@@ -46,6 +50,21 @@ const Ddashboard = () => {
 
         getPatients();
     }, []);
+    
+    // useEffect(() => {
+    //     const getDoctorReport = async () => {
+    //         try {
+    //             const response = await axios.get(`http://127.0.0.1:8000/api/report/doctor_report/${doctorId}`);
+    //             console.log(response.data);
+    //             setDoctorReport(response.data);
+    //         } catch (error) {
+    //             console.error('Error fetching doctor report:', error);
+    //         }
+    //     };
+    
+    //     getDoctorReport();
+    // }, []);
+    
 ////////////////////////////////////////////////////////////////////// add patient ////////////////////////////////////////////////////////////////////////
 const checkDoctorExists = async (docId) => {
     try {
@@ -112,7 +131,7 @@ const patientSchema = Joi.object({
     fullName: Joi.string().min(2).required(),
     phone: Joi.string().min(10).max(15).required(),
     address: Joi.string().required(),
-    age: Joi.number().integer().min(0).required(),
+    age: Joi.number().integer().min(0).max(110).required(),
     gender: Joi.string().valid('male', 'female', 'Other').required(),
     email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required(),
     password: Joi.string().min(6).required(),
@@ -136,6 +155,23 @@ const patientSchema = Joi.object({
     const [audioFile, setAudioFile] = useState(null);
     const [result, setResult] = useState(null);
     const {doctorId} = useContext(DoctorContext)
+    const [patientaudio, setpatientaudio] = useState([]);
+    const [deletedPatientId, setDeletedPatientId] = useState(null);
+    const [numrecord, setNumRecord] = useState(null);
+    useEffect(() => {
+        fetch(`http://127.0.0.1:8000/api/report/upload_audio/${doctorId}`)
+          .then(response => response.json())
+          .then(data => {
+            setPatients(data.data.patientaudio);
+            setNumRecord(data.data.patientaudio.length);
+          })
+          .catch(error => console.error('Error:', error));
+      }, []);
+
+
+
+
+
     useEffect(() => {
         fetch(`http://127.0.0.1:8000/api/patients/all/${doctorId}`)
             .then(response => response.json())
@@ -178,14 +214,54 @@ const patientSchema = Joi.object({
     }
 };
 
-    
-    
-    
+
+
+
+    // ////////////////////////////////////////////////////////////// part 4 /////////////////////////////////////////////////////
+    const [reportData, setReportData] = useState(null);
+const [doctorReport, setDoctorReport] = useState(null);
+// ${doctorId}
+useEffect(() => {
+  // Fetch the doctor report data from the API
+  axios.get(`http://127.0.0.1:8000/api/report/doctor_report/${doctorId}`)
+    .then(response => {
+      setReportData(response.data.data);
+      setDoctorReport(response.data.data.patients.length); 
+      console.log("Doctor Report Length:", doctorReport); 
+      // Set doctorReport to the length of the fetched data
+    })
+    .catch(error => {
+      console.error('Error fetching doctor report:', error);
+    });
+}, []);
+
+function printPatientInformation(patient, reportNumber) {
+  const content = `
+    <style>
+      /* Styles */
+    </style>
+    <a href="#" class="logonav fs-1">sound care system logo style</a>
+    <div class='printdiv'>
+      <h3 class='fontb'>Patient Report</h3>
+      <p><strong>Report Number:</strong> ${reportNumber}</p>
+      <p><strong>Patient Name:</strong> ${patient.patient_name}</p>
+      <p><strong>Patient ID:</strong> ${patient.patient_id}</p>
+      <p><strong>Diagnosis:</strong> ${patient.diagnosis}</p>
+      <p><strong>Date:</strong> ${patient.date}</p>
+    </div>
+  `;
+  const windowObj = window.open('', '_blank');
+  windowObj.document.write(content);
+  windowObj.document.close();
+  windowObj.print();
+}
+
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     return (
         <>
-            <div className='row' style={{ height: '100vh' }}>
-                <div className='col-lg-1 sidebars d-flex flex-column justify-content-around '>
+            <div className='row  parentdash' >
+                <div className='col-lg-1 sidebars d-flex flex-column justify-content-around' >
                     <button onClick={() => handleButtonClick('button1')} className={`buttons ${selectedButton === 'button1' ? 'selected' : ''}`}>
                         <i className="fa-solid fa-house fs-2"></i>
                     </button>
@@ -193,13 +269,13 @@ const patientSchema = Joi.object({
                         <i className="fa-solid fa-user-plus fs-2"></i>
                     </button>
                     <button onClick={() => handleButtonClick('button3')} className={`buttons ${selectedButton === 'button3' ? 'selected' : ''}`}>
-                        <i className="fa-solid fa-bell  fs-2"></i>
+                    <i class="fa-solid fa-file-audio fs-2"></i>
                     </button>
                     <button onClick={() => handleButtonClick('button4')} className={`buttons ${selectedButton === 'button4' ? 'selected' : ''}`}>
                         <i className="fa-solid fa-bell  fs-2"></i>
                     </button>
                 </div>
-                <div className='col-lg-11 col-md-10 Contentside container' style={{ height: '100%' }}>
+                <div className='col-lg-11 col-md-10 Contentside container' >
                     {selectedButton === 'button1' && (
                         <div className='container'>
                             <main className='main-container'>
@@ -208,34 +284,29 @@ const patientSchema = Joi.object({
                                     <hr className='hrline' />
                                 </div>
                                 <div className='main-cards d-flex justify-content-around'>
-                                    <div className='card p-5'>
+                                    <div className='card w-25 p-5'>
                                         <div className='card-inner'>
-                                            <h3>Reports</h3>
+                                            <h3 className='coooo'>Reports</h3>
                                             <i className="fa-solid fa-book icon"></i>
                                         </div>
-                                        <h1>300</h1>
+                                        <h1>{doctorReport}</h1>
+
                                     </div>
-                                    <div className='card p-5'>
+                                    <div className='card w-25 p-5'>
+      <div className='card-inner'>
+        <h3 className='coooo'>Records</h3>
+        <i className="fa-solid fa-file-audio fs-3"></i>
+      </div>
+      <h1>{numrecord}</h1>
+    </div>
+                                    <div className='card w-25 p-5'>
                                         <div className='card-inner'>
-                                            <h3>Records</h3>
-                                            <i className="fa-regular fa-file-audio"></i>
-                                        </div>
-                                        <h1>12</h1>
-                                    </div>
-                                    <div className='card p-5'>
-                                        <div className='card-inner'>
-                                            <h3>Patients</h3>
+                                            <h3 className='coooo'>Patients</h3>
                                             <i className="fa-solid fa-user-group icon "></i>
                                         </div>
                                         <h1>{patientContainer.length}</h1>
                                     </div>
-                                    <div className='card p-5'>
-                                        <div className='card-inner'>
-                                            <h3>ALERTS</h3>
-                                            <i className="fa-solid fa-bell"></i>
-                                        </div>
-                                        <h1>42</h1>
-                                    </div>
+                                   
                                 </div>
 
                                 <div className='charts d-flex mt-5'>
@@ -328,73 +399,102 @@ const patientSchema = Joi.object({
     </div>
 </form>
 
-
-                                {addmsg && (
+{addmsg && (
     <div className="container mx-5">
-        <div className={`alert ${addmsg.includes('error') ? 'alert-danger' : 'alert-success'}`}>{addmsg}</div>
+        <div className={`alert ${addmsg.includes('error') ? 'alert-danger' : 'alert-success'}`} role="alert">
+            {addmsg}
+        </div>
     </div>
 )}
+
 
                             </div>
                         </div>
                     )}
 {selectedButton === 'button3' && (
-                <div className='container'>
-                    <div className='main-title'>
-                        <h1 className='p-3'>Upload Audio</h1>
-                        <hr className='hrline' />
-                    </div>
-                    <div className="row pt-4">
-                        <div className="col-lg-6">
+    <div className='container'>
+        <div className='main-title'>
+            <h1 className='p-3'>Upload Audio</h1>
+            <hr className='hrline' />
+        </div>
+        <div className="row pt-4">
+            <div className="col-lg-6">
+                <div>
+                    <h3>Using Audio to Detect Diseases</h3>
+                    <p>
+                        Audio analysis has become a valuable tool in healthcare for detecting various diseases.
+                        For example, certain respiratory conditions, such as asthma and chronic obstructive pulmonary disease (COPD),
+                        can be diagnosed or monitored by analyzing the sound of a patient's breathing.
+                        Similarly, abnormalities in heart sounds, known as heart murmurs, can indicate cardiovascular issues.
+                        Machine learning algorithms are often employed to analyze audio data and identify patterns associated with specific diseases,
+                        providing healthcare professionals with valuable insights for diagnosis and treatment.
+                    </p>
+                </div>
+            </div>
+            <div className="col-lg-6 d-flex justify-content-center">
+                <div className="patient-selection w-75">
+                    <h2 className=''>Select Patient</h2>
+                    <select className="form-select" onChange={(e) => handlePatientSelect(parseInt(e.target.value))}>
+                        <option className='borderselect'  value="">Select Patient</option>
+                        {patients && patients.map(patient => (
+                            <option className='p-3 borderse' key={patient.id} value={patient.id}>
+                                {patient.fullName} - {patient.email}
+                            </option>
+                        ))}
+                    </select>
+                    <div className="selected-patient">
+                        <h5 className='my-2'>Selected Patient</h5>
+                        {selectedPatientId ? (
                             <div>
-                                <h3>Using Audio to Detect Diseases</h3>
-                                <p>
-                                    Audio analysis has become a valuable tool in healthcare for detecting various diseases.
-                                    For example, certain respiratory conditions, such as asthma and chronic obstructive pulmonary disease (COPD),
-                                    can be diagnosed or monitored by analyzing the sound of a patient's breathing.
-                                    Similarly, abnormalities in heart sounds, known as heart murmurs, can indicate cardiovascular issues.
-                                    Machine learning algorithms are often employed to analyze audio data and identify patterns associated with specific diseases,
-                                    providing healthcare professionals with valuable insights for diagnosis and treatment.
-                                </p>
+                                <p>ID: {selectedPatientId}</p>
+                                <div className="upload-audio">
+                                    <h5>Upload Audio</h5>
+                                    <input type="file" className="form-control" accept="audio/*" onChange={handleAudioUpload} />
+                                    <button className=" btn fontb rounded-5 my-3  px-5 py-2" onClick={handleButtonnClick}>Upload </button>
+                                </div> 
                             </div>
-                        </div>
-                        <div className="col-lg-6 d-flex justify-content-center">
-                            <div className="patient-selection w-75">
-                                <h2>Select Patient</h2>
-                                <select className="form-select" onChange={(e) => handlePatientSelect(parseInt(e.target.value))}>
-                                    <option value="">Select Patient</option>
-                                    {patients.map(patient => (
-                                        <option className='p-3' key={patient.id} value={patient.id}>
-                                            {patient.fullName} - {patient.email}
-                                        </option>
-                                    ))}
-                                </select>
-                                <div className="selected-patient">
-                                    <h5 className='my-2'>Selected Patient</h5>
-                                    {selectedPatientId ? (
-                                        <div>
-                                            <p>ID: {selectedPatientId}</p>
-                                            <div className="upload-audio">
-                                                <h5>Upload Audio</h5>
-                                                <input type="file" className="form-control" accept="audio/*" onChange={handleAudioUpload} />
-                                                <button className="btn btn-primary mt-3" onClick={handleButtonnClick}>Next</button>
-                                            </div> 
-                                        </div>
-                                    ) : (
-                                        <p className='m-2'>Please select a patient.</p>
-                                    )}
-                                </div>
-                            </div>
-                        </div>
+                        ) : (
+                            <p className='m-2'>Please select a patient.</p>
+                        )}
                     </div>
                 </div>
-            )}
-           {result && (
-                <div className="container mt-4">
-                    <h2>Result</h2>
-                    <p>{result.data.result}</p>
-                </div>
-            )}
+            </div>
+        </div>
+        {result && (
+            <div className="container mt-4">
+                <h2>Result</h2>
+                <p>{result.data.result}</p>
+            </div>
+        )}
+        {patients && result && (
+            <div className="container mt-4">
+                <h2>Previous diagnoses</h2>
+                <table className="table">
+                    <thead className='thhead fs-5'>
+                        <tr>
+                            <th>ID</th>
+                            <th>Full Name</th>
+                            <th>Doctor ID</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {patients.map(patient => (
+                            <tr key={patient.id}>
+                                <td>{patient.id}</td>
+                                <td>{patient.fullName}</td>
+                                <td>{patient.doc_id}</td>
+                                
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        )}
+    </div>
+)}
+
+
             
 
 
@@ -404,12 +504,42 @@ const patientSchema = Joi.object({
 
 
 
-                    {selectedButton === 'button4' && (
-                        // Code for button 4 content
-                        <div>
-                            <h1>Button 4 Content</h1>
-                        </div>
-                    )}
+            {selectedButton === 'button4' && (
+    <div className="container">
+        <h1>Doctor Report</h1>
+        {reportData && (
+            <div>
+                <h2 className='m-3 coooo'> {reportData.doctor_name}</h2>
+                <h3 className='my-5'>Patients</h3>
+                <table className="table">
+                    <thead>
+                        <tr className='thhead fs-5 w-100'>
+                            <th>Patient Name</th>
+                            <th>Patient ID</th>
+                            <th>Diagnosis</th>
+                            <th>Date</th>
+                            <th>Print report</th> {/* Added Print column header */}
+                        </tr>
+                    </thead>
+                    <tbody className='fs-5'>
+                        {reportData.patients.map(patient => (
+                            <tr key={patient.patient_id}>
+                                <td>{patient.patient_name}</td>
+                                <td>{patient.patient_id}</td>
+                                <td>{patient.diagnosis}</td>
+                                <td>{patient.date}</td>
+                                <td><button className="btn btn fontb rounded-5 my-3  px-5 py-2" onClick={() => printPatientInformation(patient)}>Print</button></td> {/* Print button in each row */}
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        )}
+    </div>
+)}
+
+
+
                 </div>
             </div>
         </>

@@ -76,6 +76,12 @@ export default function Navbaar() {
               } to="DAppiontment">DAppiontment</NavLink>
             </li>
             <li className="nav-item mx-2">
+              {/* NavLink for login */}
+              <NavLink className={({ isActive, isPending }) =>
+                isActive ? "active nav-link  rounded" : "nav-link"
+              } to="DProfile">Profile</NavLink>
+            </li>
+            <li className="nav-item mx-2">
               <NavLink className={({ isActive, isPending }) =>
                 isActive ? "active nav-link  rounded" : "nav-link"
               } to="Contactus">Contact us</NavLink>

@@ -7,6 +7,18 @@ font-family: "Comfortaa", sans-serif !important;
 
 
 }
+/* Error toast style */
+.toast-error {
+  background-color: #ffcccc;
+  color: #ff0000; /* Red color */
+}
+
+/* Success toast style */
+.toast-success {
+  background-color: #ccffcc;
+  color: #008000; /* Green color */
+}
+
 /*////////////////////////////////////////////////////////////////////////////////// Start loading screen ////////////////////////////////////////////////////////////////////////////////// */
 
 .loadingstart {
@@ -385,11 +397,31 @@ font-weight: 500;
 /* dashboard */
 
   /* ////////////////////////////////////////////////////////////////////// Start dashboard ////////////////////////////////////////////////////////////////////////////////// */
+  .borderse {
+    border: 13px solid #20B6A3 !important; /* Green */
+  }
+  .parentdash {
+    height: 100vh; /* Set the height of the row to 100% of the viewport height */
+    display: flex; /* Ensure the row uses flexbox */
+}
 
+.sidebars {
+    min-height: 100%; /* Ensure the sidebars take up at least 100% of their parent container's height */
+    background-color: #20B6A3;
+    border-radius: 30px;
+}
+
+.Contentside {
+    min-height: 100%; /* Ensure Contentside takes up at least 100% of its parent container's height */
+    background-color: #ffffff;
+}
 .formdashd {
   font-family: "Comfortaa", sans-serif;
 }
+.coooo{
+  color: #20B6A3;
 
+}
 .hrline {
   border: 2px solid #20B6A3;
   width: 25%;
@@ -397,11 +429,9 @@ font-weight: 500;
   margin-bottom: 20px;
 }
 
-.sidebars {
-  height: 100vh;
-  background-color: #20B6A3;
-  border-radius: 30px;
-}
+
+
+
 
 .buttons {
   border: transparent;
@@ -425,13 +455,18 @@ font-weight: 500;
   }
 
   .sidebars {
-    width: 20%; 
-    height: 100%;
-    flex-direction: row;
+    width: 20%;
+    height: 100%; /* Set the height of .sidebars to 100% */
+    position: fixed; /* Set the position to fixed */
+    top: 0; /* Position from the top of the viewport */
+    left: 0; /* Position from the left of the viewport */
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 10px 0;
   }
+  
 
   .buttons {
     margin: 5px;
@@ -446,7 +481,10 @@ font-weight: 500;
   .card {
     width: calc(50% - 20px);
     margin: 10px;
+    box-shadow: 10px  #20B6A3; /* Green box shadow with 10px blur radius and 2px spread radius */
+    border-color: #20B6A3;
   }
+  
 
   .charts {
     flex-direction: column;
@@ -720,14 +758,85 @@ font-weight: 500;
   }
   /* appointment */
   .appiontment{
-    margin-left: 10rem;
-    padding-right: 120px;
+  
+    margin-top: 0%;
   }
-  .imgappiontment{
-    width: 50%;
-  }
-  .appio{
-    margin-top: 10rem;
-  }
+
+    .appo{
+font-size: large;
+font-weight: 200;
+
+
+    }
+    .thhead th {
+      color: #20B6A3;
+    }
+    
+
+    /* ////////////////////////////////////////////////////////// page profile ////////////////////////////////////////////// */
+   
+    .full-height {
+      height: 100vh;
+    }
+    
+    .profile {
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 800px; /* Adjust the maximum width as per your requirement */
+      width: 100%;
+    }
+    
+    .profile-info {
+      display: flex;
+    }
+    
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      margin-right: 20px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    
+    .profile-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .info-edit {
+      flex: 1;
+    }
+    
+    .profile h2 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+    
+    .profile p {
+      margin-bottom: 5px;
+    }
+    
+    .profile p:first-child {
+      margin-top: 0;
+    }
+    
+    .profile p:last-child {
+      margin-bottom: 0;
+    }
+    /* login */
+    .fieldset-container {
+      border: 2px solid blue;
+      border-radius: 10px;
+      padding: 10px;
+      background-color: lightblue;
+    }
+    
+    .legend-text {
+      color: blue;
+    }
     
     

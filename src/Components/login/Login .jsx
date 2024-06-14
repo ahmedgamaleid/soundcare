@@ -1,9 +1,9 @@
-import React, { useState , useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import log from '../../img/Computer login-bro (2).png';
 import Dpatients from '../Doctors/Dpatients'; // Import the Dpatients component
-import { DoctorContext } from '../../App';
+import { DoctorContext, PatientContext } from '../../App'; // Import PatientContext
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -11,7 +11,9 @@ const Login = () => {
   const navigate = useNavigate();
   const [showDpatients, setShowDpatients] = useState(false); // State to manage whether to show Dpatients
   const [loading, setLoading] = useState(false); // State to manage loading state
-  const {doctorId, setDoctorId} = useContext(DoctorContext)
+  const { doctorId, setDoctorId } = useContext(DoctorContext);
+  const { patientId, setPatientId } = useContext(PatientContext); // Use PatientContext
+
   const handleLogin = async () => {
     if (!type || type === '') {
       alert('Please choose account type');
@@ -42,13 +44,15 @@ const Login = () => {
       const data = await response.json();
       const userData = data.data[`${type}_data`];
 
-      // Assuming the user is a doctor
       if (userData.role === 'doctor') {
-        localStorage.setItem("doctor" , userData.id)
+        localStorage.setItem("doctor", userData.id);
         setDoctorId(userData.id); // Store doctor's ID
         setShowDpatients(true); // Show Dpatients component
-        console.log('Doctor ID:', userData.id); // Print doctor's ID in the console
         toast.success(`Hello, Dr. ${userData.name}`);
+      } else if (userData.role === 'patient') {
+        localStorage.setItem("patient", userData.id);
+        setPatientId(userData.id); // Store patient's ID
+        toast.success(`Hello, Patient ${userData.fullName}`);
       }
 
       switch (userData.role) {

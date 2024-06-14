@@ -27,19 +27,24 @@ import ProfileDoctor from './Components/Doctors/ProfileDoctor';
 import Ddashboad from './Components/Doctors/Ddashboad';
 import Dpatients from './Components/Doctors/Dpatients';
 import DAppiontment from './Components/Doctors/DAppiontment';
+import DProfile from './Components/Doctors/DProfile';
 
 // Login Component
 import Login from '../src/Components/login/Login ';
 
 // Create a context for doctor's information
 export const DoctorContext = createContext();
+// Create a context for patient's information
+export const PatientContext = createContext();
 
 function App() {
-  const doctor = localStorage.getItem("doctor")
+  const doctor = localStorage.getItem("doctor");
+  const patient = localStorage.getItem("patient");
   const [isLoading, setIsLoading] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userRole, setUserRole] = useState(null); // Set the user role here
   const [doctorId, setDoctorId] = useState(doctor || null); // Set the user role here
+  const [patientId, setPatientId] = useState(patient || null); // Set the patient role here
 
   useEffect(() => {
     // Simulating loading time
@@ -56,51 +61,51 @@ function App() {
   };
 
   return (
-    <DoctorContext.Provider value={{
-      doctorId, setDoctorId
-    }}>
-      <div>
-        {isLoading ? (
-          <div className="loading-container">
-            <Loading />
-          </div>
-        ) : (
-          <Router>
-            <ToastContainer />
-            <Routes>
-              {/* Render login page if not logged in */}
-              {!isLoggedIn ? (
-                <Route path="/" element={<Login onLogin={handleLogin} />} />
-              ) : (
-                <>
-                  {/* Redirect to respective dashboard based on user role */}
-                  {userRole === 'admin' && (
-                    <Route path="/" element={<Navigate to="/admin/home" />} />
-                  )}
-                  {userRole === 'doctor' && (
-                    <Route path="/" element={<Navigate to="/doctor/home" />} />
-                  )}
-                  {userRole === 'patient' && (
-                    <Route path="/" element={<Navigate to="/patient/appiontement" />} />
-                  )}
-                </>
-              )}
+    <DoctorContext.Provider value={{ doctorId, setDoctorId }}>
+      <PatientContext.Provider value={{ patientId, setPatientId }}>
+        <div>
+          {isLoading ? (
+            <div className="loading-container">
+              <Loading />
+            </div>
+          ) : (
+            <Router>
+              <ToastContainer />
+              <Routes>
+                {/* Render login page if not logged in */}
+                {!isLoggedIn ? (
+                  <Route path="/" element={<Login onLogin={handleLogin} />} />
+                ) : (
+                  <>
+                    {/* Redirect to respective dashboard based on user role */}
+                    {userRole === 'admin' && (
+                      <Route path="/" element={<Navigate to="/admin/home" />} />
+                    )}
+                    {userRole === 'doctor' && (
+                      <Route path="/" element={<Navigate to="/doctor/home" />} />
+                    )}
+                    {userRole === 'patient' && (
+                      <Route path="/" element={<Navigate to="/patient/appiontement" />} />
+                    )}
+                  </>
+                )}
 
-              {/* Admin Routes */}
-              <Route path="/admin/*" element={<AdminRoutes />} />
+                {/* Admin Routes */}
+                <Route path="/admin/*" element={<AdminRoutes />} />
 
-              {/* Doctor Routes */}
-              <Route path="/doctor/*" element={<DoctorRoutes />} />
+                {/* Doctor Routes */}
+                <Route path="/doctor/*" element={<DoctorRoutes />} />
 
-              {/* Patient Routes */}
-              <Route path="/patient/*" element={<PatientRoutes />} />
+                {/* Patient Routes */}
+                <Route path="/patient/*" element={<PatientRoutes />} />
 
-              {/* Catch-all route */}
-              <Route path="*" element={<Errormsg />} />
-            </Routes>
-          </Router>
-        )}
-      </div>
+                {/* Catch-all route */}
+                <Route path="*" element={<Errormsg />} />
+              </Routes>
+            </Router>
+          )}
+        </div>
+      </PatientContext.Provider>
     </DoctorContext.Provider>
   );
 }
@@ -157,6 +162,7 @@ function DoctorRoutes() {
         <Route path="contactus" element={<Contactus />} />
         <Route path="profileDoctor" element={<ProfileDoctor />} />
         <Route path="DAppiontment" element={<DAppiontment />} />
+        <Route path="DProfile" element={<DProfile />} />
       </Routes>
     </Mainlayout>
   );
@@ -178,6 +184,11 @@ function PatientRoutes() {
 // Custom hook to access doctor's information
 export function useDoctorInfo() {
   return useContext(DoctorContext);
+}
+
+// Custom hook to access patient's information
+export function usePatientInfo() {
+  return useContext(PatientContext);
 }
 
 export default App;
