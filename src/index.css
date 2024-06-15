@@ -925,77 +925,46 @@ font-weight: 200;
 
 
 
-.container.Diseases {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
 
-.headerrr {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-}
 
-.disease-grid {
-  display: flex;
-  justify-content: center;
-}
 
-.disease {
-  width: 300px; /* Set the width of all disease divs */
-  position: relative;
-  margin-right: 20px; /* Add margin between disease divs */
-  overflow: hidden; /* Hide overflowing content */
-  animation: slide-in 0.5s ease forwards; /* Apply animation */
-}
 
-@keyframes slide-in {
-  from {
-    transform: translateX(-100%);
+
+
+
+  /* PFeedback.css */
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  to {
-    transform: translateX(0);
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(10px);
+    }
   }
-}
-
-.disease-content {
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #f8f8f8;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.disease-title {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.paragraph {
-  color: #555;
-  line-height: 1.6;
-}
-
-.disease-link {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.disease:hover .disease-link {
-  opacity: 1;
-}
-
-.link {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.link:hover {
-  text-decoration: underline;
-}
+  
+  .disease-link {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.5s, opacity 0.5s ease;
+  }
+  
+  .disease-card:hover .disease-link {
+    visibility: visible;
+    animation: fadeIn 0.5s ease forwards, fadeOut 0.5s ease forwards 3s;
+  }
+  
+  
