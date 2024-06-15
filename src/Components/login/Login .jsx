@@ -4,8 +4,17 @@ import { toast } from "react-toastify";
 import log from "../../img/Computer login-bro (2).png";
 import Dpatients from "../Doctors/Dpatients";
 import { DoctorContext, PatientContext } from "../../App";
-
+import { motion } from 'framer-motion';
 const Login = () => {
+  const rightColumnVariants = {
+    initial: { opacity: 0, x: -20 },
+    animate: { opacity: 1, x: 0, transition: { duration: 2 } },
+  };
+  
+  const leftColumnVariants = {
+    initial: { opacity: 0, x: 20 },
+    animate: { opacity: 1, x: 0, transition: { duration: 2 } },
+  };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [type, setType] = useState("");
@@ -113,7 +122,12 @@ const Login = () => {
   return (
     <div className="login-container container border-primary rounded">
       <div className="row">
-        <div className="login col-lg-6">
+        <motion.div
+          className="login col-lg-6"
+          variants={leftColumnVariants}
+          initial="initial"
+          animate="animate"
+        >
           <a href="#" className="logologin fs-1 my-4">
             sound care system logo style
           </a>
@@ -158,12 +172,17 @@ const Login = () => {
               {loading ? "Logging in..." : "Login"}
             </button>
           </form>
-        </div>
+        </motion.div>
 
-        <div className="img col-lg-6 d-flex justify-content-center align-content-center">
+        <motion.div
+          className="img col-lg-6 d-flex justify-content-center align-content-center"
+          variants={rightColumnVariants}
+          initial="initial"
+          animate="animate"
+        >
           {showDpatients && <Dpatients doctorId={doctorId} />}
           <img src={log} className="w-100" alt="login" />
-        </div>
+        </motion.div>
       </div>
     </div>
   );
