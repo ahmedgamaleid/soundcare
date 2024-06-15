@@ -957,9 +957,22 @@ font-weight: 200;
   }
   
   .disease-link {
+    text-decoration: none;
+    color: #20B6A3;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s 0.5s, opacity 0.5s ease;
+    transition: visibility 0s 0.1s, opacity 0.1s ease;
+  }
+  
+  .disease-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    flex: 0 0 48%;
+    margin: 1%;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .disease-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
   }
   
   .disease-card:hover .disease-link {
@@ -967,4 +980,13 @@ font-weight: 200;
     animation: fadeIn 0.5s ease forwards, fadeOut 0.5s ease forwards 3s;
   }
   
+  .disease-title {
+    color: #20B6A3;
+  }
+  
+  .diseases-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
   
