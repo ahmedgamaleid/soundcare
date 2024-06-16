@@ -34,6 +34,13 @@ const Doctors = () => {
       const doctorToUpdate = doctorContainer.find(doctor => doctor.id === id);
       const response = await axios.put(`http://127.0.0.1:8000/api/doctors/update?_method=PUT`, doctorToUpdate);
       console.log(response.data); // Handle the response accordingly
+
+      // Update the doctor list and set editing to false for the updated doctor
+      setDoctors(prevDoctors => 
+        prevDoctors.map(doctor =>
+          doctor.id === id ? { ...doctor, editing: false } : doctor
+        )
+      );
     } catch (error) {
       console.error('Error updating doctor:', error);
     }
