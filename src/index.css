@@ -1,11 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
 body {
-/* background-color:#fbfbfcb6  ; */
-background-color: white;
-color: rgb(17, 17, 17) ;
-font-family: "Comfortaa", sans-serif !important;
-
-
+  /* background-color:#fbfbfcb6  ; */
+  background-color: white;
+  color: rgb(17, 17, 17);
+  font-family: "Comfortaa", sans-serif !important;
 }
 /* Error toast style */
 .toast-error {
@@ -26,7 +24,7 @@ font-family: "Comfortaa", sans-serif !important;
 }
 
 .test {
-  color: #20B6A3;
+  color: #20b6a3;
   font-size: 8rem;
   font-family: "Comfortaa", sans-serif;
   display: inline-block;
@@ -38,16 +36,36 @@ font-family: "Comfortaa", sans-serif !important;
   animation: revealLetter 1s forwards;
 }
 
-.test span:nth-child(1) { animation-delay: 0s; }
-.test span:nth-child(2) { animation-delay: 0.1s; }
-.test span:nth-child(3) { animation-delay: 0.2s; }
-.test span:nth-child(4) { animation-delay: 0.3s; }
-.test span:nth-child(5) { animation-delay: 0.4s; }
-.test span:nth-child(6) { animation-delay: 0.5s; }
-.test span:nth-child(7) { animation-delay: 0.6s; }
-.test span:nth-child(8) { animation-delay: 0.7s; }
-.test span:nth-child(9) { animation-delay: 0.8s; }
-.test span:nth-child(10) { animation-delay: 0.9s; }
+.test span:nth-child(1) {
+  animation-delay: 0s;
+}
+.test span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.test span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.test span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.test span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.test span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.test span:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.test span:nth-child(8) {
+  animation-delay: 0.7s;
+}
+.test span:nth-child(9) {
+  animation-delay: 0.8s;
+}
+.test span:nth-child(10) {
+  animation-delay: 0.9s;
+}
 
 @keyframes revealLetter {
   from {
@@ -60,176 +78,146 @@ font-family: "Comfortaa", sans-serif !important;
   }
 }
 
-
-
 /* End loading screen */
-   /*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
- 
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-.ulstyle{
+.ulstyle {
   font-family: "Comfortaa", sans-serif;
-
 }
 .active {
-  color: #20B6A3 !important; /* Your desired color */
+  color: #20b6a3 !important; /* Your desired color */
   /* Add any other styles you want for active links */
 }
-.active .nav-link{
-
+.active .nav-link {
   font-family: "Comfortaa", sans-serif;
-
-
-  
 }
-.nav{
+.nav {
   color: white;
 }
 .logonav {
-    font-family: "Wavefont";
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-variation-settings: "ROND" 100, "YELA" -100;
-    white-space: nowrap; /* Prevent text from wrapping */
+  font-family: "Wavefont";
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "ROND" 100, "YELA" -100;
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+@media (max-width: 768px) {
+  .logonav {
+    font-size: 0.8rem; /* Adjust the font size as needed */
   }
-  @media (max-width: 768px) {
-    .logonav {
-      font-size: 0.8rem; /* Adjust the font size as needed */
-    }
-  }
-  
-  /* Adjust font size for even smaller screens */
-  @media (max-width: 576px) {
-    .logonav {
-      font-size: 0.6rem; /* Adjust the font size as needed */
-    }
-  }
-  /*////////////////////////////////////////////////////////////////////////////////// home//////////////////////////////////////////////////////////////////////////////////*/
-  .righthome {
-    text-align: right;
-    position: relative;
-  }
-  
-  .landing {
-    border-radius: 1% 1% 1% 50%;
-    width: 100%;
-    border-left: 15px solid #81b3b0;
-    
-  }
-  body{
-
-overflow-x: hidden !important;
-  }
-  .layerd {
-    color: #20B6A3;
-    background-color: rgb(253, 252, 252);
-    border-width: 5px;
-    border-style: solid; /* Add border style */
-    border-color: #cbe4e1; /* Border color */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Box shadow with color */
-    border-radius: 100%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70px;
-    width: 70px;
-    position: absolute;
-    left: -1%;
-    top: 40%;
 }
 
-  .closeic{
-
-color: white;
-
-
-
-
-    
+/* Adjust font size for even smaller screens */
+@media (max-width: 576px) {
+  .logonav {
+    font-size: 0.6rem; /* Adjust the font size as needed */
   }
-  .ico {
-    border-width: 20px;
-    border-color: aquamarine;
-  }
-  
-  .landingwri {
-    display: flex;
-    flex-direction: column;
-    text-align: left; /* Change to left for left alignment */
-    
-    justify-content: flex-start;
-    align-items: flex-start;
 }
-  
-  .fonth {
-    font-family: "Comfortaa", sans-serif;
-    font-size: 55px;
-}
-.fonthp{
-color: #20B6A3;
-font-style: normal;
-font-weight:normal;
-font-size: 13px;
+/*////////////////////////////////////////////////////////////////////////////////// home//////////////////////////////////////////////////////////////////////////////////*/
+.righthome {
+  text-align: right;
+  position: relative;
 }
 
-.fontp2{
+.landing {
+  border-radius: 1% 1% 1% 50%;
+  width: 100%;
+  border-left: 15px solid #81b3b0;
+}
+body {
+  overflow-x: hidden !important;
+}
+.layerd {
+  color: #20b6a3;
+  background-color: rgb(253, 252, 252);
+  border-width: 5px;
+  border-style: solid; /* Add border style */
+  border-color: #cbe4e1; /* Border color */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Box shadow with color */
+  border-radius: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  width: 70px;
+  position: absolute;
+  left: -1%;
+  top: 40%;
+}
+
+.closeic {
+  color: white;
+}
+.ico {
+  border-width: 20px;
+  border-color: aquamarine;
+}
+
+.landingwri {
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Change to left for left alignment */
+
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.fonth {
+  font-family: "Comfortaa", sans-serif;
+  font-size: 55px;
+}
+.fonthp {
+  color: #20b6a3;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+}
+
+.fontp2 {
   font-family: "Comfortaa", sans-serif;
   font-size: 14px;
 }
 
-.font2{
-
+.font2 {
   font-family: "Comfortaa", sans-serif;
 }
 
-
-
-.fontb{
+.fontb {
   font-size: 15px;
-  background-color: #20B6A3;
-  color:white;
+  background-color: #20b6a3;
+  color: white;
   padding: 10px;
 }
 .fontb:hover {
-  color: #20B6A3; /* Change text color to match background color on hover */
+  color: #20b6a3; /* Change text color to match background color on hover */
   background-color: white; /* Change background color to white on hover */
-  border-color: #20B6A3;
+  border-color: #20b6a3;
 }
-.linkhome{
-text-decoration: none;
-color: #20B6A3;
-
+.linkhome {
+  text-decoration: none;
+  color: #20b6a3;
 }
 
-.contacth{
-
+.contacth {
   font-family: "Comfortaa", sans-serif;
-
-
 }
 
-.servic{
-text-align: center;
-
-
+.servic {
+  text-align: center;
 }
 
-.nameofdiv{
-text-align: center;
-
-
+.nameofdiv {
+  text-align: center;
 }
 
-
-.fontstyle{
-
+.fontstyle {
   font-family: "Comfortaa", sans-serif;
-  
 }
 
 .lefticone {
-  color: #20B6A3;
+  color: #20b6a3;
   background-color: #dce3e2ad;
   display: flex;
   justify-content: center;
@@ -258,56 +246,52 @@ text-align: center;
   margin: 0; /* Remove default margins */
 }
 
-
-.home .first{
+.home .first {
   margin-left: 20px;
 }
-.home header{
-  color: #20B6A3;
+.home header {
+  color: #20b6a3;
   margin-bottom: 15px;
 }
-.home h3{
+.home h3 {
   margin-bottom: 15px;
   font-size: 1.5rem;
   /* font-weight: 00; */
 }
-.home p{
-  color: #888787
+.home p {
+  color: #888787;
 }
-.home .btnn:hover{
-  
+.home .btnn:hover {
   color: black;
   background-color: var(--second-color);
 }
-.home .pro{
+.home .pro {
   /* border: 10%; */
   /* box-shadow: inset; */
   margin-left: -40px;
 }
-.home .prog{
-  background-color: #20B6A3;
+.home .prog {
+  background-color: #20b6a3;
 }
 
-
-:root{
-  --main-color:#20B6A3;
-  --second-color:#E8FCFB;
+:root {
+  --main-color: #20b6a3;
+  --second-color: #e8fcfb;
 }
-.second-color{
+.second-color {
   background-color: var(--second-color);
 }
-.main-color{
+.main-color {
   background-color: var(--main-color);
 }
-.brdr{
+.brdr {
   border-radius: 7%;
-  border: #20B6A3 ;
+  border: #20b6a3;
   border-style: solid;
   text-align: center;
   padding-right: 50px;
-
 }
-.icon{
+.icon {
   color: var(--main-color);
   background-color: #fcfcfd;
   border-radius: 100%;
@@ -316,14 +300,13 @@ text-align: center;
   font-size: 2rem;
   padding: 10px 0 45px;
 }
-.about-h{
-font-size: 1.5rem;
-padding-top: 15px;
-padding-bottom: 10px;
-
+.about-h {
+  font-size: 1.5rem;
+  padding-top: 15px;
+  padding-bottom: 10px;
 }
-.about-p{
-font-style: #b6b5b5;
+.about-p {
+  font-style: #b6b5b5;
 }
 /* .about-second:hover{
 background-color: var(--second-color);
@@ -334,15 +317,14 @@ color: white;
 transition: .5s;
 } */
 .about:hover {
-  color:white;
-  background-color:#20B6A3;
+  color: white;
+  background-color: #20b6a3;
 }
-.about-th{
-margin-left: -50px;
+.about-th {
+  margin-left: -50px;
 }
 
 /*////////////////////////////////////////////////////////////////////////////////// about  //////////////////////////////////////////////////////////////////////////////////*/
-
 
 .childdr {
   z-index: 1;
@@ -350,11 +332,8 @@ margin-left: -50px;
   box-shadow: 0px 0px 10px rgba(32, 182, 163, 0.5); /* Adjust the values as needed */
 }
 
-.rightabout{
-
+.rightabout {
   font-family: "Comfortaa", sans-serif;
-
-
 }
 .drimg {
   position: relative; /* Change to relative so child elements are positioned relative to this */
@@ -363,7 +342,7 @@ margin-left: -50px;
 .childdr {
   padding: 2rem;
   background-color: white;
-  color: #20B6A3;
+  color: #20b6a3;
   border-radius: 50%;
   width: 11rem;
   height: 11rem;
@@ -374,69 +353,60 @@ margin-left: -50px;
   overflow: hidden;
   margin-top: -3rem;
   margin-right: -1rem;
- 
 }
 
-.headerco{
-color: #20B6A3;
-
+.headerco {
+  color: #20b6a3;
 }
-.spamst{
-color: black;
-font-weight: 500;
-
+.spamst {
+  color: black;
+  font-weight: 500;
 }
-.spiltb{
+.spiltb {
   margin-bottom: 15px;
 }
-.spiltt{
-  margin-top: 4rem;;
+.spiltt {
+  margin-top: 4rem;
 }
-
 
 /* dashboard */
 
-  /* ////////////////////////////////////////////////////////////////////// Start dashboard ////////////////////////////////////////////////////////////////////////////////// */
-  .borderse {
-    border: 13px solid #20B6A3 !important; /* Green */
-  }
-  .parentdash {
-    height: 100vh; /* Set the height of the row to 100% of the viewport height */
-    display: flex; /* Ensure the row uses flexbox */
+/* ////////////////////////////////////////////////////////////////////// Start dashboard ////////////////////////////////////////////////////////////////////////////////// */
+.borderse {
+  border: 13px solid #20b6a3 !important; /* Green */
+}
+.parentdash {
+  height: 100vh; /* Set the height of the row to 100% of the viewport height */
+  display: flex; /* Ensure the row uses flexbox */
 }
 
 .sidebars {
-    min-height: 100%; /* Ensure the sidebars take up at least 100% of their parent container's height */
-    background-color: #20B6A3;
-    border-radius: 30px;
+  min-height: 100%; /* Ensure the sidebars take up at least 100% of their parent container's height */
+  background-color: #20b6a3;
+  border-radius: 30px;
 }
 
 .Contentside {
-    min-height: 100%; /* Ensure Contentside takes up at least 100% of its parent container's height */
-    background-color: #ffffff;
+  min-height: 100%; /* Ensure Contentside takes up at least 100% of its parent container's height */
+  background-color: #ffffff;
 }
 .formdashd {
   font-family: "Comfortaa", sans-serif;
 }
-.coooo{
-  color: #20B6A3;
-
+.coooo {
+  color: #20b6a3;
 }
 .hrline {
-  border: 2px solid #20B6A3;
+  border: 2px solid #20b6a3;
   width: 25%;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-
-
-
-
 .buttons {
   border: transparent;
   font-family: "Comfortaa", sans-serif;
-  background-color: #20B6A3;
+  background-color: #20b6a3;
   color: white;
 }
 
@@ -466,7 +436,6 @@ font-weight: 500;
     align-items: center;
     padding: 10px 0;
   }
-  
 
   .buttons {
     margin: 5px;
@@ -481,10 +450,9 @@ font-weight: 500;
   .card {
     width: calc(50% - 20px);
     margin: 10px;
-    box-shadow: 10px  #20B6A3; /* Green box shadow with 10px blur radius and 2px spread radius */
-    border-color: #20B6A3;
+    box-shadow: 10px #20b6a3; /* Green box shadow with 10px blur radius and 2px spread radius */
+    border-color: #20b6a3;
   }
-  
 
   .charts {
     flex-direction: column;
@@ -505,14 +473,23 @@ font-weight: 500;
 
 .divformdoc {
   position: relative;
-  background-image: url('../src/img/istockphoto-1373259633-612x612.jpg');
+  background-image: url("../src/img/istockphoto-1373259633-612x612.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .overlayformdoc {
   position: absolute;
-  background: linear-gradient(to right, #109382, #11bba4, #20B6A3, #76ada6, #8fbfb8, #a7c6c1, white);
+  background: linear-gradient(
+    to right,
+    #109382,
+    #11bba4,
+    #20b6a3,
+    #76ada6,
+    #8fbfb8,
+    #a7c6c1,
+    white
+  );
   top: 0;
   left: 0;
   width: 100%;
@@ -526,352 +503,348 @@ font-weight: 500;
 
 /* End dashboard */
 
-    /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-  
-    /* start doctor add doctor in admin  */
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-    .docsty{
-      font-family: "Comfortaa", sans-serif;
-    }
-      /* end doctor add doctor in admin  */
+/* start doctor add doctor in admin  */
+
+.docsty {
+  font-family: "Comfortaa", sans-serif;
+}
+/* end doctor add doctor in admin  */
 
 /*///////////////////////////////////  strat countact us  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
+.outer-container {
+  position: relative;
+  /* width: 300px; */
+  height: 500px; /* Adjust as needed */
+  opacity: 1; /* Ensure the outer container is fully opaque */
+}
 
+.outer-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../src/img/istockphoto-1267098895-640x640.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5; /* Adjust the opacity of the background image as needed */
+}
 
-      .outer-container {
-        position: relative;
-        /* width: 300px; */
-        height: 500px; /* Adjust as needed */
-        opacity: 1; /* Ensure the outer container is fully opaque */
-      }
-      
-      .outer-container::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('../src/img/istockphoto-1267098895-640x640.jpg');
-        background-size: cover;
-        background-position: center;
-        opacity: 0.5; /* Adjust the opacity of the background image as needed */
-      }
-      
-      .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to right, #014239, #02685b, #11bba4, #20B6A3, #76ada6, #739994, #7b9692, white);
-        opacity: 0.7; /* Adjust the opacity of the gradient as needed */
-      }
-      
-      .form-container {
-        position: absolute;
-        top: -12%; /* Adjust to move the form to the top of the outer container */
-        left: 23%;
-        transform: translateX(-50%);
-        padding: 20px; /* Optional: Add padding for better appearance */
-      }
-      
-      .formss {
-        background-color: rgb(238, 236, 236); /* Set background color to white */
-        opacity: 1; /* Ensure opacity is set to 1 to make it fully opaque */
-        color: black; /* Set text color to black */
-        /* color:#20B6A3; */
-        /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 7);  */
-        box-shadow: 0px 0px 10px rgba(32, 182, 163, 2);
-      }
-      
-      .formss input[type="text"],
-      .formss input[type="tel"],
-      .formss input[type="email"],
-      .formss input[type="date"],
-      .formss textarea {
-        color: black; /* Set text color to black */
-      }
-      
-      .contact22 {
-        color: white;
-      }
-      
-      .contact22h2 h2 {
-        font-weight: 900;
-      }
-      
-      .conntac {
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-      }
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    #014239,
+    #02685b,
+    #11bba4,
+    #20b6a3,
+    #76ada6,
+    #739994,
+    #7b9692,
+    white
+  );
+  opacity: 0.7; /* Adjust the opacity of the gradient as needed */
+}
 
-      /* ///////////////////////////////// start footer /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
-     
-      
-      .footer {
-        background: linear-gradient(to right, #109382, #11bba4, #20B6A3, #76ada6, #8fbfb8, #a7c6c1, white);
-        /* position: fixed; */
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        color: white;
-       
-      }
-      .social-link {
-        text-decoration: none; /* Remove underline */
-        color: inherit; /* Inherit color from parent */
-        color: #008f7c;
-      }
-      .social-icons.list-unstyled li a i {
-        color: white; /* Set the color to #20B6A3 */
-      }
-     /*  /////////////////// start doctors//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
-     .doctorli {
-      position: relative; /* Ensure relative positioning for absolute positioning of button container */
-    }
-    .listdocload{
-      color: #20B6A3;
-      height: 100vh;
-    }
-    .bbtcon-custom {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: rgba(255, 255, 255, 0.9);
-      padding: 10px;
-      transition: opacity 0.3s ease;
-      opacity: 0;
-    }
-    
-    .doctorli:hover .bbtcon-custom {
-      opacity: 1;
-    }
-    
-    .named {
-      color: #20B6A3;
-    }
-    
+.form-container {
+  position: absolute;
+  top: -12%; /* Adjust to move the form to the top of the outer container */
+  left: 23%;
+  transform: translateX(-50%);
+  padding: 20px; /* Optional: Add padding for better appearance */
+}
 
+.formss {
+  background-color: rgb(238, 236, 236); /* Set background color to white */
+  opacity: 1; /* Ensure opacity is set to 1 to make it fully opaque */
+  color: black; /* Set text color to black */
+  /* color:#20B6A3; */
+  /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 7);  */
+  box-shadow: 0px 0px 10px rgba(32, 182, 163, 2);
+}
 
+.formss input[type="text"],
+.formss input[type="tel"],
+.formss input[type="email"],
+.formss input[type="date"],
+.formss textarea {
+  color: black; /* Set text color to black */
+}
 
+.contact22 {
+  color: white;
+}
 
-    /* start login */
+.contact22h2 h2 {
+  font-weight: 900;
+}
 
+.conntac {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
 
+/* ///////////////////////////////// start footer /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
-    
-    .login-container {
-      width: 800px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh; /* Set height to full viewport height */
-    }
-    @import url('https://fonts.googleapis.com/css2?family=Wavefont:wght@300&display=swap');
-    .logologin {
-      font-family: 'Wavefont', system-ui;
-      color: #20B6A3;
-      transition: transform 0.3s ease;
-      text-decoration: none; /* Removing underline for links */
-      cursor: pointer; /* Changing cursor to pointer on hover */
-      /* margin-bottom: rem; */
-      
-    }
-    .login {
-      
-      padding: 30px;
-      /* border: 1px solid #333b3a; */
-      border-radius: 10px 0px 0px 10px;
-     
-      font-family: "Comfortaa", sans-serif;
-    }
-    
-    .login h2 {
-      margin-bottom: 25px;
-      text-align: center;
-      color: #20B6A3;
-    }
-    
-    .login form {
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .login form div {
-      margin-bottom: 15px;
-    }
-    
-    .login form label {
-      font-weight: bold;
-    }
-    
-    .login form input[type="text"],
-    .login form input[type="password"],
-    .login form select {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-     
-    }
-    
-    .login form button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      box-shadow: 0 0 10px #20B6A3;
-      color: #fff;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    
-    
-  /*  start page patient in doctor comm */
-  .custom-patient-item {
-    position: relative;
-  }
-  
-  .listdocload {
-    color: #20B6A3;
-    height: 100vh;
-  }
-  
-  .custom-button-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 10px;
-    transition: opacity 0.3s ease;
-    opacity: 0;
-  }
-  
-  .custom-patient-item:hover .custom-button-container {
-    opacity: 1;
-  }
-  
-  .named {
-    color: #20B6A3;
-  }
-  /* appointment */
-  .appiontment{
-  
-    margin-top: 0%;
-  }
+.footer {
+  background: linear-gradient(
+    to right,
+    #109382,
+    #11bba4,
+    #20b6a3,
+    #76ada6,
+    #8fbfb8,
+    #a7c6c1,
+    white
+  );
+  /* position: fixed; */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+}
+.social-link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent */
+  color: #008f7c;
+}
+.social-icons.list-unstyled li a i {
+  color: white; /* Set the color to #20B6A3 */
+}
+/*  /////////////////// start doctors//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+.doctorli {
+  position: relative; /* Ensure relative positioning for absolute positioning of button container */
+}
+.listdocload {
+  color: #20b6a3;
+  height: 100vh;
+}
+.bbtcon-custom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
 
-    .appo{
-font-size: large;
-font-weight: 200;
+.doctorli:hover .bbtcon-custom {
+  opacity: 1;
+}
 
+.named {
+  color: #20b6a3;
+}
 
-    }
-    .thhead th {
-      color: #20B6A3;
-    }
-    
+/* start login */
 
-    /* ////////////////////////////////////////////////////////// page profile ////////////////////////////////////////////// */
-   
-    .full-height {
-      height: 100vh;
-    }
+.login-container {
+  width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Set height to full viewport height */
+}
+@import url("https://fonts.googleapis.com/css2?family=Wavefont:wght@300&display=swap");
+.logologin {
+  font-family: "Wavefont", system-ui;
+  color: #20b6a3;
+  transition: transform 0.3s ease;
+  text-decoration: none; /* Removing underline for links */
+  cursor: pointer; /* Changing cursor to pointer on hover */
+  /* margin-bottom: rem; */
+}
+.login {
+  padding: 30px;
+  /* border: 1px solid #333b3a; */
+  border-radius: 10px 0px 0px 10px;
 
-    .profile {
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background-color: #f9f9f9;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      max-width: 800px;
-      width: 100%;
-    }
+  font-family: "Comfortaa", sans-serif;
+}
 
-    .profile-info {
-      display: flex;
-    }
+.login h2 {
+  margin-bottom: 25px;
+  text-align: center;
+  color: #20b6a3;
+}
 
-    .profile-img {
-      width: 200px;
-      height: 200px;
-      margin-right: 20px;
-      border-radius: 50%;
-      overflow: hidden;
-    }
+.login form {
+  display: flex;
+  flex-direction: column;
+}
 
-    .profile-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+.login form div {
+  margin-bottom: 15px;
+}
 
-    .info-edit {
-      flex: 1;
-    }
+.login form label {
+  font-weight: bold;
+}
 
-    .profile h2 {
-      margin-bottom: 10px;
-      color: #333;
-    }
+.login form input[type="text"],
+.login form input[type="password"],
+.login form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
-    .profile p {
-      margin-bottom: 5px;
-    }
+.login form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #20b6a3;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
 
-    .profile p:first-child {
-      margin-top: 0;
-    }
+/*  start page patient in doctor comm */
+.custom-patient-item {
+  position: relative;
+}
 
-    .profile p:last-child {
-      margin-bottom: 0;
-    }
-    /* login */
-    .fieldset-container {
-      border: 2px solid blue;
-      border-radius: 10px;
-      padding: 10px;
-      background-color: lightblue;
-    }
-    
-    .legend-text {
-      color: blue;
-    }
-    
+.listdocload {
+  color: #20b6a3;
+  height: 100vh;
+}
 
+.custom-button-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
 
-    /*  patient css  */
-    .report{
-      border: #008f7c solid;
-      border-width: .5rem;
-      border-radius: 5%;
-    }
-    .hreport{
-      text-align: center;
-      height: 100vh;
-      margin-top: 6%;
-    }
-    .reportinfo{
-      margin-top: -45%;
-      margin-left: 3%;
-      margin-bottom: 6%;
-    }
-    .diagnoses{
-      text-align: center;
-      margin-bottom: 6%;
-      font-size: 1.5rem;
-    }
-        
+.custom-patient-item:hover .custom-button-container {
+  opacity: 1;
+}
 
+.named {
+  color: #20b6a3;
+}
+/* appointment */
+.appiontment {
+  margin-top: 0%;
+}
 
-    /*  page appointment of patient  */
-    /* Appointment.css */
+.appo {
+  font-size: large;
+  font-weight: 200;
+}
+.thhead th {
+  color: #20b6a3;
+}
+
+/* ////////////////////////////////////////////////////////// page profile ////////////////////////////////////////////// */
+
+.full-height {
+  height: 100vh;
+}
+
+.profile {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+}
+
+.profile-info {
+  display: flex;
+}
+
+.profile-img {
+  width: 200px;
+  height: 200px;
+  margin-right: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info-edit {
+  flex: 1;
+}
+
+.profile h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.profile p {
+  margin-bottom: 5px;
+}
+
+.profile p:first-child {
+  margin-top: 0;
+}
+
+.profile p:last-child {
+  margin-bottom: 0;
+}
+/* login */
+.fieldset-container {
+  border: 2px solid blue;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: lightblue;
+}
+
+.legend-text {
+  color: blue;
+}
+
+/*  patient css  */
+.report {
+  border: #008f7c solid;
+  border-width: 0.5rem;
+  border-radius: 5%;
+}
+.hreport {
+  text-align: center;
+  height: 100vh;
+  margin-top: 6%;
+}
+.reportinfo {
+  margin-top: -45%;
+  margin-left: 3%;
+  margin-bottom: 6%;
+}
+.diagnoses {
+  text-align: center;
+  margin-bottom: 6%;
+  font-size: 1.5rem;
+}
+
+/*  page appointment of patient  */
+/* Appointment.css */
 .background-container {
   position: relative;
   width: 100%;
   height: 500px; /* Adjust the height as needed */
-  background-image: url('./img/istockphoto-1317075903-612x612.jpg'); /* Replace with your image path */
+  background-image: url("./img/istockphoto-1317075903-612x612.jpg"); /* Replace with your image path */
   background-size: cover;
   background-position: center;
 }
@@ -885,7 +858,12 @@ font-weight: 200;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust the background color and opacity as needed */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Adjust the background color and opacity as needed */
 }
 
 .overlay p {
@@ -910,83 +888,73 @@ font-weight: 200;
   /* Add any row styles you need */
 }
 
-.col-lg-5, .col-lg-7 {
+.col-lg-5,
+.col-lg-7 {
   /* Add any column styles you need */
 }
 
-.my-5, .my-3 {
+.my-5,
+.my-3 {
   /* Add margin styles */
   margin-top: 1rem; /* 1rem is 16px */
   margin-bottom: 1rem; /* 1rem is 16px */
 }
 /*  */
 
+/* PFeedback.css */
 
-
-
-
-
-
-
-
-
-
-
-  /* PFeedback.css */
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    to {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-  }
-  
-  .disease-link {
-    text-decoration: none;
-    color: #20B6A3;
-    visibility: hidden;
+@keyframes fadeIn {
+  from {
     opacity: 0;
-    transition: visibility 0s 0.1s, opacity 0.1s ease;
+    transform: translateY(10px);
   }
-  
-  .disease-card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    flex: 0 0 48%;
-    margin: 1%;
-    transition: box-shadow 0.3s ease;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .disease-card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .disease-card:hover .disease-link {
-    visibility: visible;
-    animation: fadeIn 0.5s ease forwards, fadeOut 0.5s ease forwards 3s;
+  to {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  
-  .disease-title {
-    color: #20B6A3;
-  }
-  
-  .diseases-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
+}
+
+.disease-link {
+  text-decoration: none;
+  color: #20b6a3;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.1s, opacity 0.1s ease;
+}
+
+.disease-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  flex: 0 0 48%;
+  margin: 1%;
+  transition: box-shadow 0.3s ease;
+}
+
+.disease-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+}
+
+.disease-card:hover .disease-link {
+  visibility: visible;
+  animation: fadeIn 0.5s ease forwards, fadeOut 0.5s ease forwards 3s;
+}
+
+.disease-title {
+  color: #20b6a3;
+}
+
+.diseases-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
