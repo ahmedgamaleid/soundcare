@@ -120,7 +120,8 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container container border-primary rounded">
+    <div className="login-container-wrapper">
+    <div className="login-container container border-primary rounded h-75">
       <div className="row">
         <motion.div
           className="login col-lg-6"
@@ -173,7 +174,7 @@ const Login = () => {
             </button>
           </form>
         </motion.div>
-
+  
         <motion.div
           className="img col-lg-6 d-flex justify-content-center align-content-center"
           variants={rightColumnVariants}
@@ -185,6 +186,8 @@ const Login = () => {
         </motion.div>
       </div>
     </div>
+  </div>
+  
   );
 };
 
