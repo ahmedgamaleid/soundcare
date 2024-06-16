@@ -735,7 +735,11 @@ transition: .5s;
   color: #20b6a3;
   height: 100vh;
 }
+.patient-name{
+color: #20b6a3;
 
+
+}
 .custom-button-container {
   position: absolute;
   bottom: 0;
