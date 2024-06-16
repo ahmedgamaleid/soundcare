@@ -647,27 +647,37 @@ transition: .5s;
 
 /* start login */
 
-.login-container {
-  width: 800px;
+.login-container-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Set height to full viewport height */
+  height: 100vh;
+  width: 100%;
 }
+
+.login-container {
+  width: 800px;
+  height: 500px;
+  display: flex;
+  box-shadow: 0 0 15px rgba(32, 182, 163, 0.5); /* Updated box-shadow for all sides */
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Wavefont:wght@300&display=swap");
+
 .logologin {
   font-family: "Wavefont", system-ui;
   color: #20b6a3;
   transition: transform 0.3s ease;
   text-decoration: none; /* Removing underline for links */
   cursor: pointer; /* Changing cursor to pointer on hover */
-  /* margin-bottom: rem; */
 }
+
 .login {
   padding: 30px;
-  /* border: 1px solid #333b3a; */
-  border-radius: 10px 0px 0px 10px;
-
+  border-radius: 10px 0 0 10px;
   font-family: "Comfortaa", sans-serif;
 }
 
@@ -704,10 +714,17 @@ transition: .5s;
   border: none;
   border-radius: 5px;
   box-shadow: 0 0 10px #20b6a3;
+  background-color: #20b6a3;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
 }
+
+.login form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 
 /*  start page patient in doctor comm */
 .custom-patient-item {
