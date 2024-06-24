@@ -458,26 +458,9 @@ transition: .5s;
   .card {
     width: calc(50% - 20px); /* Two cards per row with spacing */
     margin: 10px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(32, 182, 163, 0.5);
+    box-shadow: 10px  #20B6A3; /* Green box shadow with 10px blur radius and 2px spread radius */
+    border-color: #20B6A3;
   }
-  
-  .card-inner {
-    display: flex;
-    align-items: center;
-  }
-  
-  .coooo {
-    margin-left: 10px; /* Adjust margins as needed */
-  }
-  
-  .icon {
-    margin-left: auto; /* Align icon to the right */
-    color: #20b6a3; /* Optional: Adjust icon color */
-  }
-  
 
   .charts {
     flex-direction: column;
@@ -539,84 +522,72 @@ transition: .5s;
 
 /*///////////////////////////////////  strat countact us  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-.outer-container {
-  position: relative;
-  /* width: 300px; */
-  height: 500px; /* Adjust as needed */
-  opacity: 1; /* Ensure the outer container is fully opaque */
-  margin-bottom: 10%;
-}
-
-.outer-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../src/img/istockphoto-1267098895-640x640.jpg");
-  background-size: cover;
-  background-position: center;
-  opacity: 0.5; /* Adjust the opacity of the background image as needed */
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    #014239,
-    #02685b,
-    #11bba4,
-    #20b6a3,
-    #76ada6,
-    #739994,
-    #7b9692,
-    white
-  );
-  opacity: 0.7; /* Adjust the opacity of the gradient as needed */
-}
-
-.form-container {
-  position: absolute;
-  top: -12%; /* Adjust to move the form to the top of the outer container */
-  left: 23%;
-  transform: translateX(-50%);
-  padding: 20px; /* Optional: Add padding for better appearance */
-}
-
-.formss {
-  background-color: rgb(238, 236, 236); /* Set background color to white */
-  opacity: 1; /* Ensure opacity is set to 1 to make it fully opaque */
-  color: black; /* Set text color to black */
-  /* color:#20B6A3; */
-  /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 7);  */
-  box-shadow: 0px 0px 10px rgba(32, 182, 163, 2);
-}
-
-.formss input[type="text"],
-.formss input[type="tel"],
-.formss input[type="email"],
-.formss input[type="date"],
-.formss textarea {
-  color: black; /* Set text color to black */
-}
-
-.contact22 {
-  color: white;
-}
-
-.contact22h2 h2 {
-  font-weight: 900;
-  text-align: start;
-}
-
-.conntac {
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-}
+      .outer-container {
+        position: relative;
+        /* width: 300px; */
+        height: 500px; /* Adjust as needed */
+        opacity: 1; /* Ensure the outer container is fully opaque */
+      }
+      
+      .outer-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../src/img/istockphoto-1267098895-640x640.jpg');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.5; /* Adjust the opacity of the background image as needed */
+      }
+      
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, #014239, #02685b, #11bba4, #20B6A3, #76ada6, #739994, #7b9692, white);
+        opacity: 0.7; /* Adjust the opacity of the gradient as needed */
+      }
+      
+      .form-container {
+        position: absolute;
+        top: -12%; /* Adjust to move the form to the top of the outer container */
+        left: 23%;
+        transform: translateX(-50%);
+        padding: 20px; /* Optional: Add padding for better appearance */
+      }
+      
+      .formss {
+        background-color: rgb(238, 236, 236); /* Set background color to white */
+        opacity: 1; /* Ensure opacity is set to 1 to make it fully opaque */
+        color: black; /* Set text color to black */
+        /* color:#20B6A3; */
+        /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 7);  */
+        box-shadow: 0px 0px 10px rgba(32, 182, 163, 2);
+      }
+      
+      .formss input[type="text"],
+      .formss input[type="tel"],
+      .formss input[type="email"],
+      .formss input[type="date"],
+      .formss textarea {
+        color: black; /* Set text color to black */
+      }
+      
+      .contact22 {
+        color: white;
+      }
+      
+      .contact22h2 h2 {
+        font-weight: 900;
+      }
+      
+      .conntac {
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+      }
 
 /* ///////////////////////////////// start footer /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
@@ -674,128 +645,108 @@ transition: .5s;
 
 /* start login */
 
-.login-container-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-}
-
-.login-container {
-  width: 800px;
-  height: 500px;
-  display: flex;
-  box-shadow: 0 0 15px rgba(32, 182, 163, 0.5); /* Updated box-shadow for all sides */
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Wavefont:wght@300&display=swap");
-
-.logologin {
-  font-family: "Wavefont", system-ui;
-  color: #20b6a3;
-  transition: transform 0.3s ease;
-  text-decoration: none; /* Removing underline for links */
-  cursor: pointer; /* Changing cursor to pointer on hover */
-}
-
-.login {
-  padding: 30px;
-  border-radius: 10px 0 0 10px;
-  font-family: "Comfortaa", sans-serif;
-}
-
-.login h2 {
-  margin-bottom: 25px;
-  text-align: center;
-  color: #20b6a3;
-}
-
-.login form {
-  display: flex;
-  flex-direction: column;
-}
-
-.login form div {
-  margin-bottom: 15px;
-}
-
-.login form label {
-  font-weight: bold;
-}
-
-.login form input[type="text"],
-.login form input[type="password"],
-.login form select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #20b6a3;
-  border-radius: 5px;
-  background-color: white;
-}
-
-.login form button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 0 10px #20b6a3;
-  background-color: #20b6a3;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.login form button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
 
 
-/*  start page patient in doctor comm */
-.custom-patient-item {
-  position: relative;
-}
-.docpa{
-
-  margin-bottom: 10%;
-}
-.patientma{
-  margin-bottom: 9%;
-}
-.listdocload {
-  color: #20b6a3;
-  height: 100vh;
-}
-.patient-name{
-color: #20b6a3;
-
-
-}
-.custom-button-container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 10px;
-  transition: opacity 0.3s ease;
-  opacity: 0;
-}
-
-.custom-patient-item:hover .custom-button-container {
-  opacity: 1;
-}
-
-.named {
-  color: #20b6a3;
-}
-/* appointment */
-.appiontment {
-  margin-top: 0%;
-}
+    
+    .login-container {
+      width: 800px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Set height to full viewport height */
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Wavefont:wght@300&display=swap');
+    .logologin {
+      font-family: 'Wavefont', system-ui;
+      color: #20B6A3;
+      transition: transform 0.3s ease;
+      text-decoration: none; /* Removing underline for links */
+      cursor: pointer; /* Changing cursor to pointer on hover */
+      /* margin-bottom: rem; */
+      
+    }
+    .login {
+      
+      padding: 30px;
+      /* border: 1px solid #333b3a; */
+      border-radius: 10px 0px 0px 10px;
+     
+      font-family: "Comfortaa", sans-serif;
+    }
+    
+    .login h2 {
+      margin-bottom: 25px;
+      text-align: center;
+      color: #20B6A3;
+    }
+    
+    .login form {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .login form div {
+      margin-bottom: 15px;
+    }
+    
+    .login form label {
+      font-weight: bold;
+    }
+    
+    .login form input[type="text"],
+    .login form input[type="password"],
+    .login form select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+     
+    }
+    
+    .login form button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #20B6A3;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    
+    
+  /*  start page patient in doctor comm */
+  .custom-patient-item {
+    position: relative;
+  }
+  
+  .listdocload {
+    color: #20B6A3;
+    height: 100vh;
+  }
+  
+  .custom-button-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .custom-patient-item:hover .custom-button-container {
+    opacity: 1;
+  }
+  
+  .named {
+    color: #20B6A3;
+  }
+  /* appointment */
+  .appiontment{
+  
+    margin-top: 0%;
+  }
 
 .appo {
   font-size: large;
@@ -805,30 +756,25 @@ color: #20b6a3;
   color: #20b6a3;
 }
 
-/* ////////////////////////////////////////////////////////// page profile ////////////////////////////////////////////// */
+    /* ////////////////////////////////////////////////////////// page profile ////////////////////////////////////////////// */
+   
+    .full-height {
+      height: 100vh;
+    }
 
-.full-height {
-  height: 100vh;
-}
-.prof{
-  box-shadow: 0 0 15px rgba(32, 182, 163, 0.5); 
+    .profile {
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      width: 100%;
+    }
 
-
-}
-.profile {
-  /* padding: 10px; */
-  /* border: 1px solid #ccc; */
-  border-radius: 5px;
-  background-color: white;
-  box-shadow: 0 0 15px rgba(32, 182, 163, 0.5);
-  /* max-width: 900px; */
-  /* width: 100%; */
-}
-
-.profile-info {
-  display: flex;
-  /* width: 100; */
-}
+    .profile-info {
+      display: flex;
+    }
 
 .profile-img {
   width: 200px;
@@ -876,30 +822,29 @@ color: #20b6a3;
   color: blue;
 }
 
-/*  patient css  */
-.report {
-  margin-top: 3%;
-  /* border: #008f7c solid; */
-  /* border-width: 0.5rem;
-  border-radius: 5%; */
-  padding:3%;
-}
-.hreport {
-  text-align: center;
-  height: 100vh;
-  margin-top: 2%;
-  color:#20b6a3;
-}
-.reportinfo {
-  margin-top: -50%;
-  margin-left: 3%;
-  margin-bottom: 3%;
-}
-.diagnoses {
-  text-align: center;
-  margin-bottom: 2%;
-  font-size: 1.5rem;
-}
+    /*  patient css  */
+    .report{
+      border: #008f7c solid;
+      border-width: .5rem;
+      border-radius: 5%;
+    }
+    .hreport{
+      text-align: center;
+      height: 100vh;
+      margin-top: 6%;
+    }
+    .reportinfo{
+      margin-top: -45%;
+      margin-left: 3%;
+      margin-bottom: 6%;
+    }
+    .diagnoses{
+      text-align: center;
+      margin-bottom: 6%;
+      font-size: 1.5rem;
+    }
+        
+
 
 /*  page appointment of patient  */
 /* Appointment.css */
@@ -988,19 +933,17 @@ color: #20b6a3;
   }
 }
 
-.disease-link {
-  text-decoration: none;
-  color: #20b6a3;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s 0.1s, opacity 0.1s ease;
+.disease-content {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.disease-card {
-  box-shadow:0 0 10px rgba(32, 182, 163, 0.5);
-  flex: 0 0 48%;
-  margin: 1%;
-  transition: box-shadow 0.3s ease;
+.disease-title {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 .disease-card:hover {
@@ -1012,22 +955,15 @@ color: #20b6a3;
   animation: fadeIn 0.5s ease forwards, fadeOut 0.5s ease forwards 3s;
 }
 
-.disease-title {
-  color: #20b6a3;
+.disease:hover .disease-link {
+  opacity: 1;
 }
 
-.diseases-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.link {
+  color: #007bff;
+  text-decoration: none;
 }
 
-
-
-/* ////////////////////////////////////////////////////////////////////////////////////// */
-.mergefot{
-  margin-bottom: 15%;
-}
-.margetop{
-  margin-top: 5%;
+.link:hover {
+  text-decoration: underline;
 }
