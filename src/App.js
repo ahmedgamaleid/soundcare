@@ -285,7 +285,23 @@ function PatientRoutes() {
   return (
     <PLayout>
       <Routes>
-        <Route path="/" element={<Navigate to="/patient/report" />} />
+        <Route path="/" element={<Navigate to="/patient/home" />} />
+        <Route
+          path="home"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="about"
+          element={
+            <ProtectedRoute>
+              <About />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="Report"
           element={

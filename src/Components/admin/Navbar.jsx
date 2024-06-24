@@ -37,7 +37,7 @@ const Navbar = () => {
         </style>
         <div></div>
         {/* Styling for .logonav class */}
-        <style>
+        {/* <style>
           {`
             .logonav {
               color: #20B6A3;
@@ -47,9 +47,12 @@ const Navbar = () => {
               transform: scale(1.1);
             }
           `}
-        </style>
+        </style> */}
         {/* Logo with Wavefont font family and hover effect */}
-        <p className="logonav fs-1" href="#">sound care system logo style</p>
+        <a href="#" className="logologin fs-1 my-4">
+          sound care system logo style
+        </a>
+        {/* <p className="logonav fs-1" href="#">sound care system logo style</p> */}
         {/* Navbar toggler button */}
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -85,7 +88,7 @@ const Navbar = () => {
             <li className="nav-item   mx-2">
               <NavLink className={({ isActive, isPending }) =>
                 isActive ? "active nav-link  rounded" : "nav-link"
-              } activeClassName="active" to="DashBoard">DashBoard</NavLink>
+              } activeClassName="active" to="DashBoard">Add-doctor</NavLink>
             </li>
             <li className="nav-item mx-2">
               {/* Logout button */}

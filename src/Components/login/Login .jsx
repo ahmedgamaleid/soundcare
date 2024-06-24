@@ -146,8 +146,17 @@ import { toast } from "react-toastify";
 import log from "../../img/Computer login-bro (2).png";
 import Dpatients from "../Doctors/Dpatients";
 import { DoctorContext, PatientContext } from "../../App";
-
+import { motion } from 'framer-motion';
 const Login = () => {
+  const rightColumnVariants = {
+    initial: { opacity: 0, x: -20 },
+    animate: { opacity: 1, x: 0, transition: { duration: 2 } },
+  };
+  
+  const leftColumnVariants = {
+    initial: { opacity: 0, x: 20 },
+    animate: { opacity: 1, x: 0, transition: { duration: 2 } },
+  };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [type, setType] = useState("");
@@ -207,14 +216,6 @@ const Login = () => {
         console.log(`Doctor Token: ${userData.token}`);
         toast.success(`Hello, Dr. ${userData.name}`);
       } else if (userData.role === "patient") {
-        localStorage.setItem(
-          "patient",
-          JSON.stringify({
-            id: userData.id,
-            fullName: userData.fullName,
-            // token: userData.token,
-          })
-        );
         localStorage.setItem("patient", userData.id, userData.fullName);
         setPatientId(userData.id); // Store patient's ID
         toast.success(`Hello, Patient ${userData.fullName}`);
@@ -223,6 +224,15 @@ const Login = () => {
         // settoken(userData.token);
         // console.log(`patient Token: ${userData.token}`);
         toast.success(`Hello, Patient ${userData.fullName}`);
+        localStorage.setItem(
+          "patient",
+          JSON.stringify({
+            id: userData.id,
+            fullName: userData.fullName,
+            // token: userData.token,
+          })
+        );
+       
       }
 
       switch (userData.role) {
@@ -252,61 +262,74 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container container border-primary rounded">
-      <div className="row">
-        <div className="login col-lg-6">
-          <a href="#" className="logologin fs-1 my-4">
-            sound care system logo style
-          </a>
-          <form className="mt-4" onSubmit={handleSubmit}>
-            <div>
-              <input
-                type="text"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email"
-              />
-            </div>
-            <div>
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Your password"
-              />
-            </div>
-            <div>
-              <label htmlFor="type">Login as</label>
-              <select
-                name="type"
-                id="type"
-                value={type}
-                onChange={(e) => setType(e.target.value)}
-              >
-                <option value="">Select type</option>
-                <option value="doctor">Doctor</option>
-                <option value="admin">Admin</option>
-                <option value="patient">Patient</option>
-              </select>
-            </div>
-            <button
-              type="submit"
-              className="fontb rounded-5 py-2"
-              disabled={loading}
+   <div className="login-container-wrapper">
+  <div className="login-container container border-primary rounded-4  p-4 px-5 h-75">
+    <div className="row">
+      <motion.div
+        className="login col-lg-6"
+        variants={leftColumnVariants}
+        initial="initial"
+        animate="animate"
+      >
+        <a href="#" className="logologin fs-1 my-4">
+          sound care system logo style
+        </a>
+        <form className="mt-4" onSubmit={handleSubmit}>
+          <div>
+            <input
+              type="text"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Your email"
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Your password"
+            />
+          </div>
+          <div>
+            <label htmlFor="type">Login as</label>
+            <select
+              name="type"
+              id="type"
+              value={type}
+              onChange={(e) => setType(e.target.value)}
             >
-              {loading ? "Logging in..." : "Login"}
-            </button>
-          </form>
-        </div>
+              <option value="">Select type</option>
+              <option value="doctor">Doctor</option>
+              <option value="admin">Admin</option>
+              <option value="patient">Patient</option>
+            </select>
+          </div>
+          <button
+            type="submit"
+            className="fontb rounded-5 py-2"
+            disabled={loading}
+          >
+            {loading ? "Logging in..." : "Login"}
+          </button>
+        </form>
+      </motion.div>
 
-        <div className="img col-lg-6 d-flex justify-content-center align-content-center">
-          {showDpatients && <Dpatients doctorId={doctorId} />}
-          <img src={log} className="w-100" alt="login" />
-        </div>
-      </div>
+      <motion.div
+        className="img col-lg-6 d-flex justify-content-center align-content-center"
+        variants={rightColumnVariants}
+        initial="initial"
+        animate="animate"
+      >
+        {showDpatients && <Dpatients doctorId={doctorId} />}
+        <img src={log} className="w-100" alt="login" />
+      </motion.div>
     </div>
+  </div>
+</div>
+
   );
 };
 

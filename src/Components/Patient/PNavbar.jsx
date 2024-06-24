@@ -60,6 +60,16 @@ export default function PNavbar() {
             <li className="nav-item mx-2">
               <NavLink className={({ isActive, isPending }) =>
                 isActive ? "active nav-link  rounded" : "nav-link"
+              }  to="home">Home</NavLink>
+            </li>
+            <li className="nav-item mx-2">
+              <NavLink className={({ isActive, isPending }) =>
+                isActive ? "active nav-link  rounded" : "nav-link"
+              }  to="about">About</NavLink>
+            </li>
+            <li className="nav-item mx-2">
+              <NavLink className={({ isActive, isPending }) =>
+                isActive ? "active nav-link  rounded" : "nav-link"
               }  to="Report">Report</NavLink>
             </li>
             <li className="nav-item mx-2">
@@ -71,7 +81,7 @@ export default function PNavbar() {
             <li className="nav-item mx-2">
               <NavLink className={({ isActive, isPending }) =>
                 isActive ? "active nav-link  rounded" : "nav-link"
-              }  to="Feedback">Feedback</NavLink>
+              }  to="Feedback">Education</NavLink>
             </li>
             
 

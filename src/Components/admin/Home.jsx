@@ -41,12 +41,12 @@ const customHomeContentVariants = {
   animate: { opacity: 1, x: 0 }, // Fade in and slide to the original position
 };
 const rightColumnVariants = {
-  initial: { opacity: 0, x: -20 }, // Adjusted x value
+  initial: { opacity: 0, x: -30 }, // Adjusted x value
   animate: { opacity: 1, x: 0,
      transition: { duration: 2 } },
 };
 const leftColumnVariants = {
-  initial: { opacity: 0, x: 20 }, // Adjusted x value
+  initial: { opacity: 0, x: 30 }, // Adjusted x value
   animate: { opacity: 1, x: 0,
      transition: { duration: 2 } },
 };
@@ -73,18 +73,16 @@ const Home = () => {
               <motion.h1 className='fonth' variants={animationcontent}>
                 A better way for Diagnosis
               </motion.h1>
-              <motion.p className='fontp2' variants={animationcontent}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente nemo fuga reiciendis. Amet, fugiat veniam facere itaque, quod neque inventore veritatis nam sequi, delectus ab voluptas ad blanditiis. Voluptate, nisi!
+              <motion.p className='fontp2 mt-3 fs-6' variants={animationcontent}>
+              Welcome to Soundcare AI, where cutting-edge technology meets compassionate healthcare. Our platform revolutionizes medical diagnostics by harnessing artificial intelligence and advanced voice analysis.
               </motion.p>
 
-              <div className='row font2 my-5 d-flex justify-content-center align-content-center'>
-                <div className='col-6 text-end'>
-                  {/* Button trigger modal */}
-                  <motion.button type="button" className="btn rounded-5 fontb px-4" data-bs-toggle="modal" data-bs-target="#feedbackModal" variants={animationcontent}>Feedback</motion.button>
-                </div>
+              <div className='row font2 my-5 d-flex justify-content-start align-content-start'>
                 <div className='col-6 text-start'>
-                  <motion.button type="button" className="btn rounded-5 fontb px-4" variants={animationcontent}>DISCOVER MORE <motion.i className="fa-solid fa-arrow-right mx-2" variants={animationcontent}></motion.i></motion.button>
+                  {/* Button trigger modal */}
+                  <motion.button type="button" className="btn rounded-5 fontb px-4" data-bs-toggle="modal" data-bs-target="#feedbackModal" variants={animationcontent}>DISCOVER MORE <motion.i className="fa-solid fa-arrow-right mx-2" variants={animationcontent}></motion.i></motion.button>
                 </div>
+                
               </div>
             </motion.div>
           </div>
@@ -95,27 +93,20 @@ const Home = () => {
           <div className="modal-dialog" style={{ fontFamily: '"Comfortaa", sans-serif' }}>
             <div className="modal-content">
               <div className="modal-header" style={{ backgroundColor: '#81b3b0', color: 'white' }}>
-                <h5 className="modal-title" id="feedbackModalLabel">Feedback</h5>
+                <h5 className="modal-title" id="feedbackModalLabel">more information</h5>
                 <button type="button" className="btn-close closeic" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
 
               <div className="modal-body">
                 {/* Feedback Form */}
-                <form>
-                  <div className="mb-3">
-                    <label htmlFor="feedbackInput" className="form-label">Your Feedback</label>
-                    <textarea className="form-control" id="feedbackInput" rows="4" required></textarea>
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="emailInput" className="form-label">Your Email</label>
-                    <input type="email" className="form-control" id="emailInput" required />
-                  </div>
-                </form>
+             <p>Our project addresses these issues using artificial intelligence and voice analysis through a website or mobile application. The doctor uploads the audio recording to the platform, and the website analyzes the voice and provides a diagnosis (heart rate, respiration count, and a precise disease diagnosis).
+Additionally, the patient will have a personal medical record, which can be taken to any other doctor to assist them in understanding the disease and knowing the medications that were previously prescribed.
+In a world where remote healthcare is becoming increasingly essential, DPD AI's innovative approach ensures that patients receive accurate and timely medical guidance. By harnessing the power of AI and voice analysis, doctors can now rely on a sophisticated system to aid in their diagnostic process, resulting in more precise and effective treatment recommendations.</p>
               </div>
               {/* Old Style Bottom */}
               <div className="modal-footer">
                 <button type="button" className="btn rounded-5 fontb px-4" data-bs-dismiss="modal">Close</button>
-                <button type="submit" className="btn rounded-5 fontb px-4">Submit Feedback</button>
+                
               </div>
             </div>
           </div>
@@ -146,42 +137,42 @@ const Home = () => {
           <div className='lefticone fs-2'><i className="fa-solid fa-truck-medical"></i></div>
           <div className='rightservice d-flex flex-column'>
             <h5 className='p-2'>disease knowledge</h5>
-            <p className='p-2'>Tempus lorem dis interdum sociosqu<br></br> tincidunt quisque faucibus a lacinia</p>
+            <p className='p-2'>"Knowledge of diseases improves<br></br> health outcomes and quality of life." </p>
           </div>
         </motion.div>
         <motion.div className="col-lg-4 servdiv" variants={serviceItemVariants}>
           <div className='lefticone fs-2'><i className="fa-solid fa-user-doctor"></i></div>
           <div className='rightservice d-flex flex-column'>
             <h5 className='p-2'>Disease detection</h5>
-            <p className='p-2'>Tempus lorem dis interdum sociosqu<br></br> tincidunt quisque faucibus a lacinia</p>
+            <p className='p-2'>"Artificial intelligence excels in rapid<br></br> and accurate disease detection."</p>
           </div>
         </motion.div>
         <motion.div className="col-lg-4 servdiv" variants={serviceItemVariants}>
           <div className='lefticone fs-2'><i className="fa-solid fa-stethoscope"></i></div>
           <div className='rightservice d-flex flex-column'>
             <h5 className='p-2'>Outdoor Checkup</h5>
-            <p className='p-2'>Tempus lorem dis interdum sociosqu<br></br> tincidunt quisque faucibus a lacinia</p>
+            <p className='p-2'>"Outdoor checkups blend health<br></br> with nature's serenity."</p>
           </div>
         </motion.div>
         <motion.div className="col-lg-4 servdiv" variants={serviceItemVariants}>
           <div className='lefticone fs-2'><i className="fa-solid fa-microphone"></i></div>
           <div className='rightservice d-flex flex-column'>
             <h5 className='p-2'>uploud record</h5>
-            <p className='p-2'>Tempus lorem dis interdum sociosqu<br></br> tincidunt quisque faucibus a lacinia</p>
+            <p className='p-2'>"Upload records to detect diseases."</p>
           </div>
         </motion.div>
         <motion.div className="col-lg-4 servdiv" variants={serviceItemVariants}>
           <div className='lefticone fs-2'><i className="fa-solid fa-file-waveform"></i></div>
           <div className='rightservice d-flex flex-column'>
             <h5 className='p-2'>Re-follow up</h5>
-            <p className='p-2'>Tempus lorem dis interdum sociosqu<br></br> tincidunt quisque faucibus a lacinia</p>
+            <p className='p-2'>"Track and................... manage patient <br></br>recovery and health progress."</p>
           </div>
         </motion.div>
         <motion.div className="col-lg-4 servdiv" variants={serviceItemVariants}>
           <div className='lefticone fs-2'><i className="fa-solid fa-book-medical"></i></div>
           <div className='rightservice d-flex flex-column'>
             <h5 className='p-2'>Medical Report</h5>
-            <p className='p-2'>Tempus lorem dis interdum sociosqu<br></br> tincidunt quisque faucibus a lacinia</p>
+            <p className='p-2'>"Key health data for....................... <br></br>medical assessment and care."</p>
           </div>
         </motion.div>
       </motion.div>
@@ -196,16 +187,16 @@ const Home = () => {
           <p>Enhance your quality of life with sound care Project! Don't miss the chance
             to have access to innovative healthcare services that will help you achieve better well-doing <br />
             <br />
-            <button className='btn btnn fontb rounded-5 py-2'>Discover more</button>
-          </p>
+            <button type="button" className="btn rounded-5 fontb px-4" data-bs-toggle="modal" data-bs-target="#feedbackModal" variants={animationcontent}>DISCOVER MORE <i className="fa-solid fa-arrow-right mx-2" variants={animationcontent}></i></button>
+            </p>
         </motion.div>
-        <motion.div className='col-md-4 me-1' variants={rightColumnVariants} initial="initial" whileInView="animate" viewport={{once:true,}}>
+        <motion.div className='col-md-4 me-1' >
           <img src={doctor} className='w-100' alt="Doctor" />
         </motion.div>
         <div className='col-md-4 h-100 my-5 pro shadow-lg p-3 mb-5 bg-body-tertiary rounded my-5 pt-5 pb-5'>
           <h3>Your Health, Your choice</h3>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, quis?</p>
-          <div className='w-100 h-100'>
+          <p>"Empowerment in healthcare decisions for personal well-being."</p>
+          <motion.div className='w-100 h-100' variants={rightColumnVariants} initial="initial" whileInView="animate" viewport={{once:true,}}>
             <label>Monthly active users</label>
             <div className="progress mt-2" role="progressbar" aria-label="Basic example" aria-valuenow={75} aria-valuemin={0} aria-valuemax={100}>
               <div className="progress-bar prog" style={{ width: '75%' }}>75%</div>
@@ -222,7 +213,7 @@ const Home = () => {
             <div className="progress mt-2 " role="progressbar" aria-label="Basic example" aria-valuenow={100} aria-valuemin={0} aria-valuemax={100}>
               <div className="progress-bar prog" style={{ width: '100%' }}>100%</div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </>

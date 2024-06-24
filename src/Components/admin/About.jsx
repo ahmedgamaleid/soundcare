@@ -59,20 +59,39 @@ function About(props) {
                   Service
                 </h1>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quia, minus provident ex aperiam officiis minima temporibus,
-                  ea obcaecati voluptatum, dolorem ab porro rem ducimus id
-                  doloremque perspiciatis voluptates! Obcaecati, facilis.
+                "We are professionals dedicated to diagnosis and medical services. Through teamwork, we strive to find the best solutions for our patients."
+
+This version maintains clarity and emphasizes both professionalism and collaboration in your approach to healthcare.
                 </p>
-                <button className="btn btnn main-color fontb rounded-5 py-2">
-                  Discover more
-                </button>
+                <button type="button" className="btn rounded-5 fontb px-4" data-bs-toggle="modal" data-bs-target="#feedbackModal" >DISCOVER MORE <i className="fa-solid fa-arrow-right mx-2" ></i></button>
               </div>
             </div>
           </motion.div>
         </motion.div>
       </div>
    {/* about more */}
+  <div className="modal fade" id="feedbackModal" tabIndex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+          <div className="modal-dialog" style={{ fontFamily: '"Comfortaa", sans-serif' }}>
+            <div className="modal-content">
+              <div className="modal-header" style={{ backgroundColor: '#81b3b0', color: 'white' }}>
+                <h5 className="modal-title" id="feedbackModalLabel">more information</h5>
+                <button type="button" className="btn-close closeic" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+              <div className="modal-body">
+                {/* Feedback Form */}
+             <p>Our project addresses these issues using artificial intelligence and voice analysis through a website or mobile application. The doctor uploads the audio recording to the platform, and the website analyzes the voice and provides a diagnosis (heart rate, respiration count, and a precise disease diagnosis).
+Additionally, the patient will have a personal medical record, which can be taken to any other doctor to assist them in understanding the disease and knowing the medications that were previously prescribed.
+In a world where remote healthcare is becoming increasingly essential, DPD AI's innovative approach ensures that patients receive accurate and timely medical guidance. By harnessing the power of AI and voice analysis, doctors can now rely on a sophisticated system to aid in their diagnostic process, resulting in more precise and effective treatment recommendations.</p>
+              </div>
+              {/* Old Style Bottom */}
+              <div className="modal-footer">
+                <button type="button" className="btn rounded-5 fontb px-4" data-bs-dismiss="modal">Close</button>
+                
+              </div>
+            </div>
+          </div>
+        </div>
 
    <motion.div
         className="container fontstyle my-3 d-flex justify-content-center text-center my-5"
@@ -86,11 +105,10 @@ function About(props) {
         >
           <div className="py-3 ps-5">
             <i className="fa-solid fa-user-doctor icon"></i>
-            <h3 className="about-h">Personalized Health Consultations</h3>
+            <h3 className="about-h">Understanding Your Unique Needs
+            </h3>
             <p className="about-p">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit
-              reiciendis error dolorem. Laudantium consectetur omnis, fugit
-              incidunt cupiditate facilis id.
+            At our clinic, we recognize that each patient's journey with pulmonary diseases is unique. We offer personalized health consultations to tailor treatment plans specifically to your medical history, lifestyle, and health goals. Whether you are managing chronic obstructive pulmonary disease (COPD), asthma, or interstitial lung disease, our expert team is dedicated to providing care that addresses your individual needs.
             </p>
           </div>
         </motion.div>
@@ -100,11 +118,11 @@ function About(props) {
         >
           <div className="py-3 ps-5">
             <i className="fa-solid fa-heart-pulse icon"></i>
-            <h3 className="about-h">Personalized Health Consultations</h3>
+            <h3 className="about-h">Comprehensive Diagnostic Approach
+            </h3>
             <p className="about-p">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit
-              reiciendis error dolorem. Laudantium consectetur omnis, fugit
-              incidunt cupiditate facilis id.
+            Our personalized consultation begins with a comprehensive diagnostic evaluation. Utilizing advanced imaging techniques, pulmonary function tests, and a thorough review of your medical history, we pinpoint the exact nature and severity of your condition. This precise diagnosis allows us to create a targeted treatment plan that optimizes your health outcomes.
+
             </p>
           </div>
         </motion.div>
@@ -114,11 +132,12 @@ function About(props) {
         >
           <div className="py-3 ps-5">
             <i className="fa-solid fa-heart-pulse icon"></i>
-            <h3 className="about-h">Personalized Health Consultations</h3>
+            <h3 className="about-h">
+Tailored Treatment Plans
+</h3>
             <p className="about-p">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit
-              reiciendis error dolorem. Laudantium consectetur omnis, fugit
-              incidunt cupiditate facilis id.
+            Based on your unique diagnostic profile, we develop a customized treatment plan designed to improve your lung function, reduce symptoms, and enhance your quality of life. Our treatments may include medication management, respiratory therapy, lifestyle modifications, and, if necessary, advanced interventions such as minimally invasive surgery or pulmonary rehabilitation programs.
+
             </p>
           </div>
         </motion.div>

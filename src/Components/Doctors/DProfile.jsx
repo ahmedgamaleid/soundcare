@@ -43,7 +43,10 @@ const DProfile = () => {
 
   return (
     <div className="container d-flex align-items-center justify-content-center full-height">
-      <div className="profile w-100 h-50">
+      <div className="profile   border-0 h-50 bg-body d-flex justify-content-center  align-items-center" style={{
+          boxShadow: '0 0 10px rgba(32, 182, 163, 0.7)',
+          transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+        }}>
         {doctor ? (
           <div className="profile-info">
             <div className="profile-img position-relative">

@@ -40,70 +40,73 @@ export default function ProfileDoctor() {
 
   return (
     <div className="container">
-    <div style={{ height: '50vh' }}>
-      <div className="row h-100">
-        <div className="col-md-6 d-flex flex-column justify-content-center">
-          <div className="mb-3">
-            <label htmlFor="image" className="form-label">Upload an image</label>
-            <input
-              type="file"
-              className="form-control"
-              id="image"
-              onChange={(e) => setImage(e.target.files[0])}
-              disabled={!isEditing}
-            />
+      <div className='prof' style={{
+           
+            
+        
+            }}>
+        <div className="row h-100">
+          <div className="col-md-6 d-flex flex-column justify-content-center">
+            <div className="mb-3">
+              <label htmlFor="image" className="form-label">Upload an image</label>
+              <input
+                type="file"
+                className="form-control"
+                id="image"
+                onChange={(e) => setImage(e.target.files[0])}
+                disabled={!isEditing}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="Name">Name</label>
+              <input
+                type="text"
+                className="form-control"
+                name="Name"
+                id="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                disabled={!isEditing}
+              />
+            </div>
           </div>
-          <div className="mb-3">
-            <label htmlFor="Name">Name</label>
-            <input
-              type="text"
-              className="form-control"
-              name="Name"
-              id="Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              disabled={!isEditing}
-            />
-          </div>
-        </div>
-        <div className="col-md-6 d-flex flex-column justify-content-center">
-          <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">Email</label>
-            <input
-              type="email"
-              className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              disabled={!isEditing}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-            <input
-              type="password"
-              className="form-control"
-              id="exampleInputPassword1"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              disabled={!isEditing}
-            />
-          </div>
-          <div className="col-12 mt-3">
-            {isEditing ? (
-              <>
-                <button className="btn btn-primary me-2" type="submit" onClick={handleSubmit}>Save</button>
-                <button className="btn btn-danger" type="button" onClick={handleCancel}>Cancel</button>
-              </>
-            ) : (
-              <button className="btn btn-primary" type="button" onClick={() => setIsEditing(true)}>Edit</button>
-            )}
+          <div className="col-md-6 d-flex flex-column justify-content-center">
+            <div className="mb-3">
+              <label htmlFor="exampleInputEmail1" className="form-label">Email</label>
+              <input
+                type="email"
+                className="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={!isEditing}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
+              <input
+                type="password"
+                className="form-control"
+                id="exampleInputPassword1"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                disabled={!isEditing}
+              />
+            </div>
+            <div className="col-12 mt-3">
+              {isEditing ? (
+                <>
+                  <button className="btn btn-primary me-2" type="submit" onClick={handleSubmit}>Save</button>
+                  <button className="btn btn-danger" type="button" onClick={handleCancel}>Cancel</button>
+                </>
+              ) : (
+                <button className="btn btn-primary" type="button" onClick={() => setIsEditing(true)}>Edit</button>
+              )}
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  
   );
 }
